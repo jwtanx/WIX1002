@@ -72,6 +72,6 @@ public class L3Q1 {
         if(choice == 'Y' || choice == 'y')
             main(args);
         else
-            System.out.println("Done on 30 Sept 2019, 9.40P.M.");
+            System.out.println("Done on 30 Sept 2019, 9:40P.M.");
     }
 }
