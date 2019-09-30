@@ -24,12 +24,14 @@ public class L2Q6 {
         System.out.print("\nFinal temperature(°C): ");
         ft = s.nextDouble();
         
-        System.out.println("\nInitial temperature(°C): ");
+        System.out.print("\nInitial temperature(°C): ");
         it = s.nextDouble();
         
-        Q = M * (ft - it) * 4.184;
+        Q = M * (ft - it) * 4184;
         
-        System.out.printf("The energy needed is %f", Q);
+        System.out.println("");
+        
+        System.out.printf("The energy needed is %.6eJ\n", Q);
         
     }
 }
