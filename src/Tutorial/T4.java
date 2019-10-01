@@ -107,6 +107,19 @@ public class T4 {
         int e2 = 25;
         double esum = 0;
         
+        //FOR LOOP
+        for(e1 = 1, e2 = 25; e1 <= 25; e1++, e2--){
+            
+            if (e1 == 25){
+                esum += e1/(e2*1.0);
+                break;
+            }
+            
+            System.out.printf("%d/%d + ", e1, e2);
+            esum += e1/(e2*1.0);
+        }
+        
+        /* WHILE LOOP
         while(e1 <= 25 && e2 >= 1){
             System.out.printf("%d/%d + ", e1, e2);
             esum += e1/(e2*1.0);
@@ -118,7 +131,100 @@ public class T4 {
                 break;
             }
         }
+        */
         System.out.printf("%d/%d\n", e1, e2);
         System.out.printf("= %.2f\n", esum);
+        
+    // 2. Correct the error for the following statements
+    
+    // Q2A
+        System.out.println("\nQuestion 2a");    
+    
+        sum = 0;
+        for (int x = 0; x <= 10; x++){
+            sum += x;
+        }
+        System.out.println("The sum: " + sum);
+        
+    // Q2B
+        System.out.println("\nQuestion 2b"); 
+        
+        int x = 0;
+        int y = 0;
+        
+        do{
+            x += 2;
+            y += x;
+            System.out.println(x + " and " + y);
+            
+        }while (x < 100);
+
+    // Q2C
+        System.out.println("\nQuestion 2c");
+        
+        for (x = 1, y = 20; x < y; x++, y-=2){
+            System.out.println(x + " " + y);
+        }
+        
+    // Q2D
+        System.out.println("\nQuestion 2d");
+
+        int i = 1;
+        
+        while(i < 10){
+            
+            System.out.println(i);
+            i++;
+            
+            if (i==10)
+                System.out.println("Program End");
+        }
+        
+    // 3. Write the statements that display the first ten values of the Fibonacci sequence. Given the formula f1 = 1, f2 =1,            fn = fn-1 + fn-2.
+
+        System.out.println("\nQuestion 3");
+        
+        int[] f = new int[11];
+        
+        f[0] = 0;
+        f[1] = 1;
+        f[2] = 1;
+        
+        System.out.print(f[1] + ", " + f[2] + ", ");
+        
+        for(int c = 3; c <= 10; c++){
+            f[c] = f[c-1] + f[c-2];
+            
+            if(c != 10){
+                System.out.print(f[c] + ", ");
+            }else{
+                System.out.println(f[c]);
+            }
+        }
+        
+    // 4. Write the statements that display the string in reverse order. (use String.length() to get the length of the string)
+        
+        System.out.println("\nQuestion 4");
+        
+        System.out.print("Enter a sentence to reverse it: ");
+        String[] sentence = s.nextLine().split("");
+        String[] reverse = new String[sentence.length];
+        String temp4 = "";
+        
+        
+        int first, last;
+
+        for(first = 0, last = sentence.length - 1; first < sentence.length; first++, last--){
+            temp4 = sentence[first];
+            reverse[first] = sentence[last];
+            reverse[last] = temp4;
+        }
+        
+        System.out.print("Reversed of the string: ");
+        
+        for(int count = 0; count < sentence.length; count++){
+            System.out.print(reverse[count]);
+        }
+        System.out.println("\n\nDone @ 011019, 16:29");
     }
 }
