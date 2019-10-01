@@ -78,9 +78,22 @@ public class T4 {
             
         }
         
-        System.out.println("");
+    // Q1D    
+        System.out.println("\n\nQuestion 1d");
 
+        System.out.print("Enter a number(n) so that sum = addition from 1 to n: ");
+        int num = s.nextInt();
+        int sum = 0;
         
-        
+        for(int a = 1; a <= num; a++){
+            sum += a;
+            if(a == num){
+                System.out.printf("%d", a);
+            }else{
+                System.out.printf("%d + ", a);
+            }
+            
+        }
+        System.out.println(" = " + sum);
     }
 }
