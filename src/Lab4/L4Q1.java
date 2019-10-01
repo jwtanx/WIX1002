@@ -11,5 +11,7 @@ package Lab4;
  * @author User
  */
 public class L4Q1 {
-    
+    public static void main(String[] args) {
+        
+    }
 }
