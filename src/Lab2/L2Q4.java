@@ -24,7 +24,7 @@ public class L2Q4 {
         
         m = second / 60 % 60;
         
-        s = second % 60 % 60;
+        s = second % 60;
         
         System.out.printf("\n%d seconds is %d hours, %d minutes and %d seconds\n", second, h, m, s);
         
