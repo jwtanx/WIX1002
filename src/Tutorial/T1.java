@@ -178,31 +178,47 @@ public class T1{
 				System.out.println("Enter a string to find freq of letter U & M:");
 
 				String sen = sc.nextLine();
-
+                                
+                                String temp8;
+                                
 				int numOfU = 0;
 				int numOfM = 0;
 				int othernum = 0;
+                                int u = 0;
+                                int m = 0;
 
 				for(int count = 0; count < sen.length(); count++){
-					
-					char ch = sen.charAt(count);
-
-					if(ch == 'U'){
-						numOfU++;
-					}
-
-					else if(ch == 'M'){
-						numOfM++;
-					}
-
-					else{
-						othernum++;
-					}
+				    
+                                    // First way
+                                    temp8 = sen.substring(count, count +1);
+                                    
+                                    if(temp8.contains("u") || temp8.contains("U")){
+                                        u++;
+                                    }else if(temp8.contains("m") || temp8.contains("M")){
+                                        m++;
+                                    }
+                                    
+                                    // Second way
+                                    switch(sen.charAt(count)){
+                                        case 'u':
+                                        case 'U':
+                                            numOfU++;
+                                            break;
+                                        
+                                        case 'm':
+                                        case 'M':
+                                            numOfM++;
+                                            break;
+                                            
+                                        default:
+                                            othernum++;
+                                    }
 				}
 
-				System.out.printf("Number of U: %d\nNumber of M: %d\nNumber of other letters: %d\n", numOfU, numOfM, othernum);
+                System.out.printf("Number of U: %d\nNumber of M: %d\nNumber of other letters: %d\n", numOfU, numOfM, othernum);
+                System.out.printf("Number of U: %d\nNumber of M: %d\nNumber of other letters: %d\n", u, m, othernum);
 
-				break;
+                        break;
 
 //QUESTION 9. Display the frequency of a keyword from a web page.
 			case 9:
