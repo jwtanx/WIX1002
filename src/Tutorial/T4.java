@@ -82,8 +82,12 @@ public class T4 {
         System.out.println("\n\nQuestion 1d");
 
         System.out.print("Enter a number(n) so that sum = addition from 1 to n: ");
-        int num = s.nextInt();
+        //int num = s.nextInt();
+        int num = 1 + r.nextInt(10);
+        System.out.println(num);
         int sum = 0;
+        
+        System.out.println();
         
         for(int a = 1; a <= num; a++){
             sum += a;
@@ -95,5 +99,26 @@ public class T4 {
             
         }
         System.out.println(" = " + sum);
+        
+    // Q1E
+        System.out.println("\nQuestion 1e");
+        
+        int e1 = 1;
+        int e2 = 25;
+        double esum = 0;
+        
+        while(e1 <= 25 && e2 >= 1){
+            System.out.printf("%d/%d + ", e1, e2);
+            esum += e1/(e2*1.0);
+            e1++;
+            e2--;
+            
+            if (e1 == 25){
+                esum += e1/(e2*1.0);
+                break;
+            }
+        }
+        System.out.printf("%d/%d\n", e1, e2);
+        System.out.printf("= %.2f\n", esum);
     }
 }
