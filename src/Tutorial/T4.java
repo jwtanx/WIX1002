@@ -207,14 +207,15 @@ public class T4 {
         System.out.println("\nQuestion 4");
         
         System.out.print("Enter a sentence to reverse it: ");
-        String[] sentence = s.nextLine().split("");
+        String b4sentence = s.nextLine();
+        String[] sentence = b4sentence.split("");
         String[] reverse = new String[sentence.length];
         String temp4 = "";
         
         
         int first, last;
 
-        for(first = 0, last = sentence.length - 1; first < sentence.length; first++, last--){
+        for(first = 0, last = b4sentence.length() - 1; first < b4sentence.length(); first++, last--){
             temp4 = sentence[first];
             reverse[first] = sentence[last];
             reverse[last] = temp4;
@@ -222,7 +223,7 @@ public class T4 {
         
         System.out.print("Reversed of the string: ");
         
-        for(int count = 0; count < sentence.length; count++){
+        for(int count = 0; count < b4sentence.length(); count++){
             System.out.print(reverse[count]);
         }
         System.out.println("\n\nDone @ 011019, 16:29");
