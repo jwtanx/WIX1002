@@ -32,16 +32,16 @@ public class L4Q2 {
                     System.out.print(term);
                 
                 sum += term;
-                
+
             }
             
-            if( i != n)
+            if (i != n)
                 System.out.print(") + ");
             else
                 System.out.println(")");
-        }
+        }   
         
-        System.out.println(" = " + sum);
+        System.out.println("= " + sum);     
         
     }
 }
