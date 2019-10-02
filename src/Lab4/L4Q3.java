@@ -7,11 +7,12 @@ quit if negative score is enter. A sample output is given below.
  */
 package Lab4;
 
-import java.util.Scanner;
+
 /**
  *
  * @author User
  */
+import java.util.Scanner;
 public class L4Q3 {
     public static void main(String[] args) {
         
