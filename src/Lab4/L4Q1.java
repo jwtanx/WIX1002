@@ -21,7 +21,7 @@ public class L4Q1 {
         System.out.print("Enter an Integer: ");
         int integer = s.nextInt();
         
-        //int[] li = new int[integer]; 
+        //int[] lis = new int[integer];
         
         List<Integer> li = new ArrayList<Integer>();
         
@@ -31,7 +31,7 @@ public class L4Q1 {
             }
         }
         
-        System.out.println("\nThe factors are: " + li);
+        System.out.println("The factors are: " + li);
         
     }
 }
