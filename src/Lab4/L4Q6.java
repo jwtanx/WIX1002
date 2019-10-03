@@ -17,7 +17,7 @@ public class L4Q6 {
         
         Random r = new Random();
         
-        int num = -1;
+        int num = - 1;
         
         List<Integer> li = new ArrayList<Integer>();
         
