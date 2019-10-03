@@ -93,8 +93,8 @@ public class T3{
 
 
 		// 1d
-			String d1 = "Hello";
-			String d2 = "dog";
+			String d1 = "zopple";
+			String d2 = "zapple";
 
 			if(d1.compareToIgnoreCase(d2) < 0)
 				System.out.printf("%s comes first then %s\n", d1, d2);
