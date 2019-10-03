@@ -74,7 +74,7 @@ public class L4Q7 {
             System.out.printf("%d\t\t%13.2f\t\t%9.2f\t\t%8.2f\t\t%14.2f\n", n, M, C, L, R);
         }
         
-        System.out.println("\nDone @ 031019, 23:26");
+        System.out.println("\nDone @ 031019, 23:27");
         
     }
 }
