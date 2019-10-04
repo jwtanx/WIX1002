@@ -19,13 +19,112 @@ import java.util.Scanner;
  * @author User
  */
 public class L3Q3 {
+    
+    static void group(int a, double vol, double c){
+        
+        double fixedVol = vol;
+        
+        switch(a){
+            case 4:
+                vol -= 1000;
+                c += vol * (12.5/100);
+                group(3, 1000, c);
+                System.exit(0);
+                
+            case 3:
+                vol -= 500;
+                c += vol * (10.0/100);
+                group(2, 500, c);
+                System.exit(0);
+              
+            case 2:
+                vol -= 100;
+                c += vol * (7.5/100);
+                group(1, 100, c);
+                System.exit(0);
+                
+            case 1:
+                c += vol * (5.0/100);
+                break;
+        }
+        System.out.printf("$%.2f", c);
+        System.out.println("\n\nDone @ 051019, 00:20");
+    }
+    
     public static void main(String[] args) {
         
         Scanner s = new Scanner(System.in);
         
-        System.out.print("Enter sales volume: ");
-        int vol = s.nextInt();
-        double c;
+        System.out.print("Enter sales volume\t: $");
+        double volume = s.nextDouble();
+        System.out.printf("Commision of $%.2f\t: ", volume);
+
+        if(volume > 1000) group(4, volume, 0);
+        if(volume > 500 && volume <= 1000) group(3, volume, 0);
+        if(volume > 100 && volume <= 500) group(2, volume, 0);
+        if(volume > 0 && volume <= 100)  group(1, volume, 0);
+        
+        
+        
+/*
+=================
+OLD WRONG VERSION
+=================
+        
+    static double get(double volume){
+        
+        double c = 0;
+        
+        if(volume > 1000) c = group(4, volume);
+        if(volume > 500 && volume <= 1000) c = group(3, volume);
+        if(volume > 100 && volume <= 500) c = group(2, volume);
+        if(volume > 0 && volume <= 100) c = group(1, volume);
+        
+        return c;
+    }
+    */
+        
+        //System.out.println(get(volume));
+        /*
+        if(volume > 1000) 
+            System.out.println(group(4, volume, 0));
+        if(volume > 500 && volume <= 1000)
+            System.out.println(group(3, volume, 0));
+        if(volume > 100 && volume <= 500)
+            System.out.println(group(2, volume, 0));
+        if(volume > 0 && volume <= 100)
+            System.out.println(group(1, volume, 0));
+        */
+        
+        /*
+        while(vol > 1000){
+            vol -= 1000;
+            c += vol * (12.5/100);
+        }
+        
+        while(vol > 500 && vol <= 1000){
+            vol -= 500;
+            c += vol * (10.0/100);
+        }
+        
+        while(vol > 100 && vol <= 500){
+            vol -= 100;
+            c += vol * (7.5/100);
+        }
+        
+        while(vol > 0 && vol <= 100){
+            c += vol * (5.0/100);
+            vol = 0;
+        }
+        
+        System.out.printf("Sale commission: $%.2f", c);
+        */
+        
+        
+/*
+============================
+ANSWER FOR ORIGINAL QUESTION
+============================
         
         if(vol >= 0 && vol <= 100){
             c = vol * 5/100;
@@ -46,7 +145,7 @@ public class L3Q3 {
             c = vol * 12.5/100;
             System.out.printf("12.5%% commission of %d sales volume: %.2f\n", vol, c);
         }
+        */
         
-        System.out.println("\nDone on 30 Sept 2019, 10:03P.M.");
     }
 }
