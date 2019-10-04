@@ -66,7 +66,16 @@ public class T3{
 
 
 		// 1c
-			String c = "a";
+                        System.out.println("Enter a character: ");
+                        char cc = s.next().charAt(0);
+                        
+                        boolean check = Character.isUpperCase(cc);
+                        
+                        if(check)System.out.printf("%c is a capital letter.\n", cc);
+                        else System.out.printf("%c is a small letter.\n", cc);
+                        
+                    // OLD VERSION
+                        String c = "a";
 			System.out.println("Enter any letter either cap / small letter");
 			String c1 = "HelloWorld";
 			//char cap1 = c1.charAt(0);
