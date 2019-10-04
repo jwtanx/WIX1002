@@ -43,7 +43,7 @@ public class L4Q8 {
         System.out.println("The random number n: " + n);
         
         System.out.print("The prime numbers are: " + li);
-        System.out.println();
+        System.out.println("\nDone @ 041019, 15:02");
         
     } 
 } 
