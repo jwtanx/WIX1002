@@ -20,6 +20,60 @@ import java.util.Scanner;
  */
 public class L3Q3 {
     
+    
+    public static void main(String[] args) {
+        
+        Scanner s = new Scanner(System.in);
+/*
+==============
+SIMPLE VERSION
+==============
+*/
+        System.out.println("SIMPLE VERSION: if-else statement");
+        System.out.print("Enter the sales volume\t: $");
+        double simpleVol = s.nextDouble();
+        double simpleC = 0;
+        
+        if(simpleVol <= 100){
+            simpleC += simpleVol * 5.0/100; 
+        }else if(simpleVol > 100){
+            simpleC += 100 * 5.0/100;
+            simpleVol -= 100;
+            
+            if(simpleVol <= 400){
+                simpleC += simpleVol * 7.5/100;
+            }else if(simpleVol > 400){
+                simpleC += 400 * 7.5/100;
+                simpleVol -= 400;
+                
+                    if(simpleVol <= 500){
+                        simpleC += simpleVol * 10.0/100;
+                    }else if(simpleVol > 500){
+                        simpleC += 500 * 10.0/100;
+                        simpleVol -= 500;
+                        simpleC += simpleVol * 12.5/100;
+                    }
+            }
+        }
+        System.out.printf("Commission\t\t: $%.2f\n\n", simpleC);
+        System.out.println("Simple version done @ 051019, 13:03");
+
+/*
+===================
+COMPLICATED VERSION
+===================        
+*/
+        System.out.println("COMPLICATED VERSION: method & switch");
+        System.out.print("Enter sales volume\t: $");
+        double volume = s.nextDouble();
+        System.out.printf("Commision of $%.2f\t: ", volume);
+
+        if(volume > 1000) group(4, volume, 0);
+        if(volume > 500 && volume <= 1000) group(3, volume, 0);
+        if(volume > 100 && volume <= 500) group(2, volume, 0);
+        if(volume > 0 && volume <= 100)  group(1, volume, 0);
+        
+    }
     static void group(int a, double vol, double c){
         
         double fixedVol = vol;
@@ -48,24 +102,9 @@ public class L3Q3 {
                 break;
         }
         System.out.printf("$%.2f", c);
-        System.out.println("\n\nDone @ 051019, 00:20");
+        System.out.println("\n\nComplicated version done @ 051019, 00:20");
     }
-    
-    public static void main(String[] args) {
-        
-        Scanner s = new Scanner(System.in);
-        
-        System.out.print("Enter sales volume\t: $");
-        double volume = s.nextDouble();
-        System.out.printf("Commision of $%.2f\t: ", volume);
-
-        if(volume > 1000) group(4, volume, 0);
-        if(volume > 500 && volume <= 1000) group(3, volume, 0);
-        if(volume > 100 && volume <= 500) group(2, volume, 0);
-        if(volume > 0 && volume <= 100)  group(1, volume, 0);
-        
-        
-        
+}    
 /*
 =================
 OLD WRONG VERSION
@@ -146,6 +185,3 @@ ANSWER FOR ORIGINAL QUESTION
             System.out.printf("12.5%% commission of %d sales volume: %.2f\n", vol, c);
         }
         */
-        
-    }
-}
