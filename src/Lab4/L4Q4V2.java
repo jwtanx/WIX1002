@@ -105,21 +105,14 @@ public class L4Q4V2 {
         for(int n = 0; n < dp; n++) System.out.print("\t");
         
         for(int d = 1; d <= md; d++){
-            
             System.out.printf("%3d\t", d);
-            
             if(dp < 7) dp++;
-            
-            if(dp == 7){
-                System.out.println();
-                dp -= 7;
-            }
+            if(dp == 7){System.out.println(); dp -= 7;}
         }
     
         if(showAll == 1){
             if(m != 12) {m++; printCal(dp, m, lps, 1);}
         }
-        
     }
     
     static Scanner s = new Scanner(System.in);
