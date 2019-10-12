@@ -100,6 +100,7 @@ public class L4Q4V2 {
         if(m == 11) {System.out.println("\nNovember");  md = 30;}
         if(m == 12) {System.out.println("\nDecember");  md = 31;}
         
+    /* To show Sunday first
         System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
         
         for(int n = 0; n < dp; n++) System.out.print("\t");
@@ -115,7 +116,24 @@ public class L4Q4V2 {
                 dp -= 7;
             }
         }
+    */
+    // To show Monday first
+        System.out.println("Mon\tTue\tWed\tThu\tFri\tSat\tSun");
         
+        for(int n = 1; n < dp; n++) System.out.print("\t");
+        
+        for(int d = 1; d <= md; d++){
+            
+            System.out.printf("%3d\t", d);
+            
+            if(dp < 8) dp++;
+            
+            if(dp == 8){
+                System.out.println();
+                dp -= 7;
+            }
+        }
+    //
         if(showAll == 1){
             if(m != 12) {m++; printCal(dp, m, lps, 1);}
         }
