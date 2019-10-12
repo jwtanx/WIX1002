@@ -43,7 +43,7 @@ public class L4Q4V2 {
     //Jan        
         fdom[1] = dp;
     //Feb        
-        while(dd2 != 1) {dd2--; dp2--;   if(dp2 == -1) dp2 = 6;}  fdom[2] = dp2;
+        while(dd2 != 1) {dd2--; dp2--;   if(dp2 == -1) dp2 = 6;} fdom[2] = dp2;
     //Mar        
         while(dd3 != 1) {dd3--; dp3--;   if(dp3 == -1) dp3 = 6;} fdom[3] = dp3;
     //Apr        
