@@ -14,7 +14,7 @@ fdom    = first day of month
 dd1     = Jan doomsday
 dd2     = Feb doomsday
 ddbm    = doomsday by month
-mtbd     = month to be displayed
+mtbd    = month to be displayed
 
  */
 package Lab4;
