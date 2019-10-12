@@ -100,7 +100,6 @@ public class L4Q4V2 {
         if(m == 11) {System.out.println("\nNovember");  md = 30;}
         if(m == 12) {System.out.println("\nDecember");  md = 31;}
         
-    /* To show Sunday first
         System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
         
         for(int n = 0; n < dp; n++) System.out.print("\t");
@@ -116,15 +115,55 @@ public class L4Q4V2 {
                 dp -= 7;
             }
         }
-    */
-    // To show Monday first
+    
+        if(showAll == 1){
+            if(m != 12) {m++; printCal(dp, m, lps, 1);}
+        }
+        
+    }
+    
+    static Scanner s = new Scanner(System.in);
+    
+    static void chooseMonth(int fd, int lps){
+        int month;
+        do{
+            System.out.print("\n\nChoose any month from 1 - 12 [Other number to exit]: ");
+            month = s.nextInt(); 
+            findfdom(fd, lps, month);
+        }while(month != 0 && month < 13);
+    }
+    
+    public static void main(String[] args) {
+        
+        System.out.print("Enter the year: ");
+        int year = s.nextInt();
+        int lps = 0;
+        if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) ) lps = 1;
+        int fd;
+        
+        do{
+            System.out.print("Enter the first day of the year (0 for Sunday, 1 for Monday, … , 6 for Saturday): ");
+            fd = s.nextInt(); s.nextLine();}
+        while(fd < 0 || fd > 6);
+   
+        System.out.print("Type \"CHOOSE\" = Choose various months, \"ALL\" = Show all: ");
+        String choice = s.nextLine();
+        if(choice.toLowerCase().contains("c")) chooseMonth(fd, lps);
+        else if(choice.toLowerCase().contains("a")) printCal(fd, 1, lps, 1);
+        else {System.out.println("Please restarts!"); System.exit(0);}
+
+        System.out.println("\n\nDone @ 121019, 01:12");
+    }
+}
+    /* To show Monday first [NEED EDIT]
         System.out.println("Mon\tTue\tWed\tThu\tFri\tSat\tSun");
         
         for(int n = 1; n < dp; n++) System.out.print("\t");
         
         for(int d = 1; d <= md; d++){
             
-            System.out.printf("%3d\t", d);
+            if(d != md) System.out.printf("%3d\t", d);
+            else if (d == md) System.out.printf("%3d", d);
             
             if(dp < 8) dp++;
             
@@ -133,111 +172,11 @@ public class L4Q4V2 {
                 dp -= 7;
             }
         }
-    //
-        if(showAll == 1){
-            if(m != 12) {m++; printCal(dp, m, lps, 1);}
-        }
-    }
-    
-    static Scanner s = new Scanner(System.in);
-    public static void main(String[] args) {
-        
-        System.out.print("Enter the year: ");
-        int year = s.nextInt();
-        int lps = 0;
-        
-        if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) ) lps = 1;
-        
-        System.out.print("Enter the first day of the year (0 for Sunday, 1 for Monday, … , 6 for Saturday): ");
+    */
+
+    /* Monday starts [NEED EDIT]
+        System.out.print("Enter the first day of the year (1 for Monday, … , 6 for Saturday, 7 for Sunday): ");
         int fd = s.nextInt();
-        
-        System.out.print("Enter month to be displayed (0 to choose various months, 13 to show all): ");
-        int mtbd = s.nextInt();
-        
-        if(mtbd == 0){
-            answer(fd, lps);
-        }
-        
-        if(mtbd == 13){
-            switch(fd){
-            case 0:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 1:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 2:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 3:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 4:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 5:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            case 6:
-                printCal(fd, 1, lps, 1);
-                break;
-                
-            default:
-                System.out.println("System restarts!");
-                main(args);
-            }
-        }
-        else{
-        switch(fd){
-            case 0:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 1:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 2:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 3:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 4:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 5:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            case 6:
-                findfdom(fd, lps, mtbd);
-                break;
-                
-            default:
-                System.out.println("System restarts!");
-                main(args);
-            }
-        }       
-        
-        System.out.println("\n\nDone @ 111019, 22:27");
-    }
-    static void answer(int fd, int lps){
-        
-        int month;
-        do{
-            System.out.print("\n\nChoose any month from 1 - 12 [0 to exit]: ");
-            month = s.nextInt(); 
-            findfdom(fd, lps, month);
-        }while(month != 0);
-    }
-}
+        s.nextLine();
+        if(fd < 1 || fd > 7) {System.out.println("Please restarts!"); System.exit(0);}
+    */
