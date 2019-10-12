@@ -13,7 +13,6 @@ dd      = doomsday
 fdom    = first day of month
 dd1     = Jan doomsday
 dd2     = Feb doomsday
-ddbm    = doomsday by month
 mtbd    = month to be displayed
 
  */
@@ -26,22 +25,22 @@ import java.util.Scanner;
  * @author User
  */
 public class L4Q4V2 {
-    static void findfdom(int dp, int lps, int mtbd){
+    static void findfdom(int fd, int lps, int mtbd){
         
         int[] fdom = new int[13];
         fdom[0] = 0;
         int d = 1;
-        int ddbm = dp;
+        int dp = fd;
         
         int dd1 = 3, dd2 = 28, dd3 = 14, dd4 = 4, dd5 = 9, dd6 = 6, dd7 = 11, dd8 = 8, dd9 = 5, dd10 = 10, dd11 = 7, dd12 = 12;
         if(lps == 1){dd1 = 4; dd2 = 29;}
         
-        while(d < dd1) {ddbm++; if(ddbm == 7) ddbm = 0; d++;}
+        while(d < dd1) {dp++; if(dp == 7) dp = 0; d++;}
         
-        int dp2 = ddbm, dp3 = ddbm, dp4 = ddbm, dp5 = ddbm, dp6 = ddbm, dp7 = ddbm, dp8 = ddbm, dp9 = ddbm, dp10 = ddbm, dp11 = ddbm, dp12 = ddbm;
+        int dp2 = dp, dp3 = dp, dp4 = dp, dp5 = dp, dp6 = dp, dp7 = dp, dp8 = dp, dp9 = dp, dp10 = dp, dp11 = dp, dp12 = dp;
         
     //Jan        
-        fdom[1] = dp;
+        fdom[1] = fd;
     //Feb        
         while(dd2 != 1) {dd2--; dp2--;   if(dp2 == -1) dp2 = 6;} fdom[2] = dp2;
     //Mar        
