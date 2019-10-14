@@ -225,6 +225,20 @@ static Random r = new Random();
         
         System.out.println("\nThe random number: " + rnum);
         
+        // Correct version based on theory
+        for(int b = 0; b < bit.length; b++){
+            re = rnum % 2;
+            bit[b] = re;
+            rnum /= 2;
+        }
+        
+        System.out.print("The bit: ");
+        
+        for(int c = 0; c < bit.length; c++){
+            System.out.print(bit[bit.length - c - 1]);
+        }
+        
+        /* Wrong version
         for(int b = bit.length - 1; b >= 0; b--){
             re = rnum % 2;
             rnum /= 2;
@@ -234,8 +248,8 @@ static Random r = new Random();
         for(int a : bit){
             System.out.print(a + " ");
         }
-        
-        System.out.println("Done @ 151019, 05:45");
+        */
+        System.out.println("\n\nDone @ 151019, 05:45");
         
     }
 }
