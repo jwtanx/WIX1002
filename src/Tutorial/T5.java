@@ -196,8 +196,10 @@ static Random r = new Random();
             
             System.out.print("Reversed: ");
             for(int k = 0; k < name[c].length(); k++){
-                reverse += name[c].substring(name[c].length() - (k + 1), name[c].length() - k);
-                System.out.print(name[c].substring(name[c].length() - (k + 1), name[c].length() - k));
+                reverse += name[c].charAt(name[c].length() - k - 1);
+                System.out.print(name[c].charAt(name[c].length() - k - 1));
+                //reverse += name[c].substring(name[c].length() - (k + 1), name[c].length() - k);
+                //System.out.print(name[c].substring(name[c].length() - (k + 1), name[c].length() - k));
             }
             
             System.out.println();
