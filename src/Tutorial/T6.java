@@ -5,12 +5,15 @@ package Tutorial;
 
 import java.util.Scanner;
 import java.math.BigInteger;
+import java.util.Random;
 
 /**
  *
  * @author User
  */
 public class T6 {
+    
+    static Random r = new Random();
     
     //Q1A. Define a static method that returns the maximum number from 3 integer parameters. 
     static int findMax(int a, int b, int c){
@@ -84,7 +87,77 @@ public class T6 {
         return numOfLnD;
     }
     
+    //Q1F. Define a static void method that generates 10 random numbers within 0 to 100 to the method’s parameter. The random numbers can be accessed by the main method. 
+    // [NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED CORRECTION SOON]
+    static void generateNum(int f){
+        
+        final int[] rnumlist = new int[10];
+        
+        for(int c = 0; c < rnumlist.length; c++){
+            rnumlist[c] = r.nextInt(101);
+        }
+        
+        System.out.print("The generated list: ");
+        
+        for(int rnum : rnumlist) System.out.print(rnum + " ");
+        
+        System.out.printf("\nYou chose: %d\n\n", rnumlist[f]);
+        
+    }
     
+    //Q1G. Define a static void method that returns the area and the circumference of a circle given the argument is radius. Area = πr2 and Circumference = 2 πr.
+    // [NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED CORRECTION SOON]
+    static void areaNcircumference(double r){
+        
+        double area = Math.PI * Math.pow(r, 2);
+        double circumference = 2 * Math.PI *  r;
+        
+        System.out.printf("The area of a %.2fcm radius circle: %.2fcm^2\n", r, area);
+        System.out.printf("The circumference of a %.2fcm radius circle: %.2fcm\n\n", r, circumference);
+        
+    }
+    
+    //Q1H. Define a static method that generate random number within 0 – 10. The method will return the first random number that generate twice.
+    static int duplicatedRnum(){
+        
+        int num[] = new int[11];
+        int rnum, duplicate;
+        
+        while(true){
+            rnum = r.nextInt(11);
+            System.out.print("\nGenerated number: " + rnum);
+            if(num[rnum] == 0) num[rnum] = 1;
+            else{
+                System.out.println(" --> Duplicated\n");
+                duplicate = rnum;
+                break;
+            }
+        }
+        
+        return duplicate;
+    }
+    
+    //Q2. Write a program that consists of a method that can display three numbers in decreasing order.
+    static int[] decreasingOrder(int a, int b, int c){
+        
+        int[] deOrder = new int[3];
+        deOrder[0] = a;
+        deOrder[1] = b;
+        deOrder[2] = c;
+        int temp;
+        
+        for(int i = 0; i < deOrder.length; i++){
+            for(int j = i + 1; j < deOrder.length; j++){
+                if(deOrder[i] < deOrder[j]){
+                    temp = deOrder[i];
+                    deOrder[i] = deOrder[j];
+                    deOrder[j] = temp;
+                }
+            }
+        }
+        
+        return deOrder;
+    }
     
     public static void main(String[] args) {
         
@@ -98,9 +171,10 @@ public class T6 {
             case 'a':
                 //Q1A
                 System.out.println("\nQ1A:");
-                System.out.print("\nNum1: "); int a1 = s.nextInt();
-                System.out.print("\nNum2: "); int a2 = s.nextInt();
-                System.out.print("\nNum3: "); int a3 = s.nextInt();
+                System.out.print("Enter 3 numbers separately to check the max num: ");
+                int a1 = s.nextInt();
+                int a2 = s.nextInt();
+                int a3 = s.nextInt();
                 
                 System.out.printf("Max num: %d\n\n", findMax(a1, a2, a3));
                 break;
@@ -136,7 +210,7 @@ public class T6 {
             case 'e':
                 //Q1E
                 s.nextLine();
-                System.out.println("\nQ1E");
+                System.out.println("\nQ1E:");
                 System.out.print("Type a sentence to check the number of digits & letters: "); String e = s.nextLine();
                 
                 int numOfLnD[] = numOfLetterNDigit(e);
@@ -146,39 +220,53 @@ public class T6 {
                 
             case 'F':
             case 'f':
-                
-                
-                
-                
+                //Q1F
+                System.out.println("\nQ1F: [CORRECTION NEEDED]");
+                System.out.print("Select an index(1 - 10) of a list of generated num: ");
+                generateNum(s.nextInt() - 1);
                 break;
                 
             case 'G':
             case 'g':
-                
+                //Q1G
+                System.out.println("\nQ1G: [CORRECTION NEEDED]");
+                System.out.print("Enter radius of a circle to find area & circumference(cm): ");
+                double r = s.nextDouble();
+                areaNcircumference(r);
                 break;
                 
             case 'H':
             case 'h':
-                
+                //Q1H
+                System.out.println("\nQ1H:");
+                System.out.printf("The duplicated random number: %d\n\n", duplicatedRnum());
                 break;
                 
             case '2':
+                //Q2
+                System.out.println("\nQ2:");
+                System.out.print("Display numbers in decreasing order. Enter 3 number separately: ");
+                int a = s.nextInt();
+                int b = s.nextInt();
+                int c = s.nextInt();
+                int[] deOrder = decreasingOrder(a, b, c);
                 
+                System.out.print("The decreasing order: ");
+                for(int i : deOrder){
+                    System.out.print(i + " ");
+                }
+                System.out.println("\n");
                 break;
                 
             default:
-                System.out.println("");
-                
+                System.out.println("N/A");
         }
         
         System.out.print("Restart? (Y/N): ");
         char restart = s.next().charAt(0);
         
         if(restart == 'Y' || restart == 'y') main(args);
-        else System.out.println("\nDone @ 201019, 19:08");
-        
-        
-        
+        else System.out.println("\nDone @ 201019, 23:42");
         
     }
 }
