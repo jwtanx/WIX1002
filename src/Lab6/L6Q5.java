@@ -25,25 +25,23 @@ public class L6Q5 {
         
         Scanner s = new Scanner(System.in);
         Random r = new Random();
+        int score = 0;
         
-        System.out.print("[a * b = c] Enter a, b, c separately to check if c is the correct answer: ");
-        int a = s.nextInt();
-        int b = s.nextInt();
-        int c = s.nextInt();
+        while(true){
+            int a = r.nextInt(13);
+            int b = r.nextInt(13);
+
+            System.out.println("Enter negative number to quit: ");
+            System.out.printf("%d x %d = ", a, b);
+            int c = s.nextInt();
+            if(checkMulti(a, b, c) == true) score++;
+            if(c < 0) break;
+
+        }
         
-        System.out.printf("%d * %d = %d [%b]\n", a, b, c, checkMulti(a, b, c));
-        if(checkMulti(a, b, c) == false) System.out.println("\nAnswer is " + a*b);
+        System.out.println("Your score is " + score);
         
-        System.out.println("\nMultiplication Game");
-        a = r.nextInt(13);
-        b = r.nextInt(13);
-        
-        System.out.printf("%d * %d = ", a, b);
-        c = s.nextInt();
-        System.out.printf("%d * %d = %d [%b]\n", a, b, c, checkMulti(a, b, c));
-        if(checkMulti(a, b, c) == false) System.out.println("\nAnswer is " + a*b);
-        
-        System.out.println("\nDone @ 211019, 10:31");
+        System.out.println("\nDone @ 211019, 10:43");
         
     }
 }
