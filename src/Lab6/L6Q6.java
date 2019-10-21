@@ -33,6 +33,21 @@ public class L6Q6 {
         
     }
     
+    static boolean isEmirp(int n){
+        
+        int num = n;
+        int rev = 0;
+        
+        while(num > 0){
+            rev = (rev * 10) + (num % 10);
+            num /= 10;
+        }
+        
+        if(rev != n && isPrime(rev)) return isPrime(rev);
+        else return false;
+        
+    }
+    
     static int[] palindromeList(int n){
         
         int i = 0;
@@ -57,29 +72,23 @@ public class L6Q6 {
 
         int i = 0;
         int num = 3;
-        int tempnum;
-        int rev;
         int[] eList = new int[n];
 
-        while (i < n) {
-            rev = 0;
+        
+        while(i < n){
             
-            if (isPrime(num)) {
-                tempnum = num;
-                while (tempnum > 0) {
-                    rev = (rev * 10) + (tempnum % 10);
-                    tempnum /= 10;
-                }
-
-                if (isPrime(rev) && rev != num) {
+            if(isPrime(num)){
+                if(isEmirp(num)){
                     eList[i] = num;
                     i++;
                 }
             }
             num++;
         }
+        
         return eList;
     }
+
     
     public static void main(String[] args) {
         
