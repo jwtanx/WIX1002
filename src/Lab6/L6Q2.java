@@ -1,5 +1,5 @@
 /*
- * 2. Write a Java method multiPrint(int n, char c) that prints n copies of character c. Then, write a Java program to use the method to display the triangles and diamonds.
+ * 2. Write a Java method multiPrint(int n, char c) that prints n copies of character c. Then, write a Java program to use the method to display the triangles and diamonds. NEED UPDATE
  */
 package Lab6;
 
