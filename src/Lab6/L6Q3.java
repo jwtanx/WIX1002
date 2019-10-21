@@ -14,8 +14,25 @@ public class L6Q3 {
     static int[] reversed(int[] numlist){
         
         int[] rev = new int[numlist.length];
-        String reverseStr;
+        int num;
+        int revnum;
         
+        for(int c = 0; c < numlist.length; c++){
+            
+            num = numlist[c];
+            revnum = 0;
+            
+            while(num > 0){
+                revnum = (revnum * 10) + (num % 10);
+                num /= 10;
+            }
+            
+            rev[c] = revnum;
+        }
+        
+// OLD VERSION
+/*
+        String reverseStr;
         for(int c = 0; c < numlist.length; c++){
             
             reverseStr = "";
@@ -28,6 +45,7 @@ public class L6Q3 {
             rev[c] = Integer.parseInt(reverseStr);
             
         }
+*/
         return rev;
     }
     
@@ -61,6 +79,8 @@ public class L6Q3 {
         }
         
         System.out.println("\n\nDone @ 211019, 09:15");
-        
     }
 }
+
+
+
