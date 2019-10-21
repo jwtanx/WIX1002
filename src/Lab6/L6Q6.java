@@ -10,113 +10,127 @@ import java.util.Scanner;
  * @author User
  */
 public class L6Q6 {
-    
-    static boolean isPrime(int n){
-        
-        for (int i = 2; i < n; i++) if (n % i == 0) return false;
-        
+
+    static boolean isPrime(int n) {
+
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
         return true;
     }
-    
-    static boolean isPalindrome(int n){
-        
+
+    static boolean isPalindrome(int n) {
+
         int num = n;
         int rev = 0;
-        
-        while(num > 0){
+
+        while (num > 0) {
             rev = (rev * 10) + (num % 10);
             num /= 10;
         }
-        
-        if(rev == n && isPrime(rev)) return isPrime(rev);
-        else return false;
-        
+
+        if (rev == n && isPrime(rev)) {
+            return isPrime(rev);
+        } else {
+            return false;
+        }
+
     }
-    
-    static boolean isEmirp(int n){
-        
+
+    static boolean isEmirp(int n) {
+
         int num = n;
         int rev = 0;
-        
-        while(num > 0){
+
+        while (num > 0) {
             rev = (rev * 10) + (num % 10);
             num /= 10;
         }
-        
-        if(rev != n && isPrime(rev)) return isPrime(rev);
-        else return false;
-        
+
+        if (rev != n && isPrime(rev)) {
+            return isPrime(rev);
+        } else {
+            return false;
+        }
+
     }
-    
-    static int[] palindromeList(int n){
-        
+
+    static int[] palindromeList(int n) {
+
         int i = 0;
         int num = 3;
         int[] pList = new int[n];
-        
-        while(i < n){
-            
-            if(isPrime(num)){
-                if(isPalindrome(num)){
+
+        while (i < n) {
+
+            if (isPrime(num)) {
+                if (isPalindrome(num)) {
                     pList[i] = num;
                     i++;
                 }
             }
             num++;
         }
-        
+
         return pList;
     }
-    
+
     static int[] emirpList(int n) {
 
         int i = 0;
         int num = 3;
         int[] eList = new int[n];
 
-        
-        while(i < n){
-            
-            if(isPrime(num)){
-                if(isEmirp(num)){
+        while (i < n) {
+
+            if (isPrime(num)) {
+                if (isEmirp(num)) {
                     eList[i] = num;
                     i++;
                 }
             }
             num++;
         }
-        
+
         return eList;
     }
 
-    
     public static void main(String[] args) {
-        
+
         Scanner s = new Scanner(System.in);
-        
+
         System.out.print("Enter number of Palindrome Prime and Emirp to be displayed: ");
         int n = s.nextInt();
-        
+
         int[] getPnumList = palindromeList(n);
         int[] getEmirpList = emirpList(n);
-        
+
         System.out.print("\nPalindrome list\t: ");
-        for(int p = 0; p < getPnumList.length; p++){
-            
-            if(p == getPnumList.length - 1) System.out.print(getPnumList[p]);
-            else System.out.print(getPnumList[p] + ", ");
-            
+        for (int p = 0; p < getPnumList.length; p++) {
+
+            if (p == getPnumList.length - 1) {
+                System.out.print(getPnumList[p]);
+            } else {
+                System.out.print(getPnumList[p] + ", ");
+            }
+
         }
-        
+
         System.out.print("\nEmirp list\t: ");
-        for(int e = 0; e < getEmirpList.length; e++){
-            
-            if(e == getEmirpList.length - 1) System.out.print(getEmirpList[e]);
-            else System.out.print(getEmirpList[e] + ", ");
-            
+        for (int e = 0; e < getEmirpList.length; e++) {
+
+            if (e == getEmirpList.length - 1) {
+                System.out.print(getEmirpList[e]);
+            } else {
+                System.out.print(getEmirpList[e] + ", ");
+            }
+
         }
-        
+
         System.out.println("\n\nDone @ 211019, 22:41");
-        
+
     }
 }
