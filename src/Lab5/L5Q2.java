@@ -36,6 +36,6 @@ public class L5Q2 {
             else System.out.print(num[n] + ", ");
         }
         
-        System.out.println("\n\nDone Updated @ 241019, 01:05");
+        System.out.println("\n\nDone Updated @ 241019, 01:06");
     }
 }
