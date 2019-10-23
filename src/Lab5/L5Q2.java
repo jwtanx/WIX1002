@@ -20,7 +20,7 @@ public class L5Q2 {
             num[i] = r.nextInt(21);
             
             if(i > 0){
-                for(int c = 0; c <= i - 1; c++){
+                for(int c = 0; c < i; c++){
                     if (num[c] == num[i]){
                         System.out.println("Duplicated number: " + num[c]);
                         i--;
@@ -29,10 +29,13 @@ public class L5Q2 {
             }
         }
         
-        System.out.println("The number generated: ");
+        System.out.print("\nThe number generated: ");
         
-        for(int n : num){
-            System.out.print(n + ", ");
+        for(int n = 0; n < num.length; n++){
+            if(n == num.length - 1) System.out.print(num[n]);
+            else System.out.print(num[n] + ", ");
         }
+        
+        System.out.println("\n\nDone Updated @ 241019, 01:05");
     }
 }
