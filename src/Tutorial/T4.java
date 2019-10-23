@@ -57,6 +57,22 @@ public class T4 {
     // Q1C
         System.out.println("\nQuestion 1c");
         
+        int[][] matrix = new int[4][5];
+
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                matrix[i][j] = r.nextInt(101);
+            }
+        }
+        
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        
+        /*
         System.out.print("/");
         for(int t = 1; t <= 20; t++){
             
@@ -77,6 +93,7 @@ public class T4 {
             }
             
         }
+        */
         
     // Q1D    
         System.out.println("\n\nQuestion 1d");
@@ -184,6 +201,23 @@ public class T4 {
 
         System.out.println("\nQuestion 3");
         
+        System.out.print("Enter fibonacci numbers: ");
+        int fn = s.nextInt();
+        s.nextLine();
+        
+        int[] fib = new int[fn];
+        
+        fib[0] = 1; fib[1] = 1;
+        
+        for(int c = 2; c < fib.length; c++){
+            fib[c] = fib[c-1] + fib[c-2];
+        }
+        
+        for(int fibonacci : fib){
+            System.out.print(fibonacci + ", ");
+        }
+        
+        /*
         int[] f = new int[11];
         
         f[0] = 0;
@@ -201,11 +235,20 @@ public class T4 {
                 System.out.println(f[c]);
             }
         }
+        */
         
     // 4. Write the statements that display the string in reverse order. (use String.length() to get the length of the string)
         
-        System.out.println("\nQuestion 4");
+        System.out.println("\n\nQuestion 4");
         
+        System.out.print("Enter a sentence to reverse it: ");
+        String sentence = s.nextLine();
+        
+        for(int count = 0; count < sentence.length(); count++){
+            System.out.print(sentence.charAt(sentence.length() - count - 1));
+        }
+        
+        /* USELESS VERSION
         System.out.print("Enter a sentence to reverse it: ");
         String b4sentence = s.nextLine();
         String[] sentence = b4sentence.split("");
@@ -226,6 +269,7 @@ public class T4 {
         for(int count = 0; count < b4sentence.length(); count++){
             System.out.print(reverse[count]);
         }
+        */
         System.out.println("\n\nDone @ 011019, 16:29");
     }
 }
