@@ -157,6 +157,24 @@ static Random r = new Random();
         
         String word = "the";
         
+        String[] sentence = {"the", "son", "is", "eating", "the", "apple", ".", "The", "son", "is", "the", "farmer"};
+        // String sentence = "the son is eating the apple. The son is the farmer";
+        // String[] splitsentence = sentence.split("\\W+");
+        
+        int cnt = 0, index;
+        
+        for(int k = 0; k < sentence.length; k++){
+            index = 0;
+            
+            while((index = sentence[k].indexOf("the", index)) != -1){
+                index++;
+                cnt++;
+            }
+        }
+        System.out.print("The number of occurance for the word: ");
+        
+    }
+        /* WRONG UNDERSTANDING
         int numOfPossible = (int) Math.pow(2, word.length());
         
         System.out.println("\n\nThe number of possible sentive cases: " + numOfPossible);
@@ -168,7 +186,7 @@ static Random r = new Random();
         for(String words : possibleCase)System.out.print(words + ", ");
         
         System.out.println();
-        
+        */
         /*
         String[][] possibleCase = new String[numOfPossible][word.length()];
         for(int prow = 0; prow < possibleCase.length; prow++){
@@ -187,19 +205,19 @@ static Random r = new Random();
         Each string element must be displayed in reverse order as well.
         */
         
-        String[] name = {"Abu", "Ah Meng", "racecar", "Muthu"};
-        String[] reversedList = new String[name.length];
+        String[] sentence = {"Abu is reading", "Ah Meng is sleeping", "racecar si racecar", "Muthu Toh"};
+        String[] reversedList = new String[sentence.length];
         String reverse = "";
-        
-        for(int c = 0; c < name.length; c++){
-            System.out.println("\nName: " + name[c]);
+        {
+        for(int c = 0; c < sentence[c].length(); c++){
+            System.out.println("\nsentence: " + sentence[c]);
             
             System.out.print("Reversed: ");
-            for(int k = 0; k < name[c].length(); k++){
-                reverse += name[c].charAt(name[c].length() - k - 1);
-                System.out.print(name[c].charAt(name[c].length() - k - 1));
-                //reverse += name[c].substring(name[c].length() - (k + 1), name[c].length() - k);
-                //System.out.print(name[c].substring(name[c].length() - (k + 1), name[c].length() - k));
+            for(int k = 0; k < sentence[c].length(); k++){
+                reverse += sentence[c].charAt(sentence[c].length() - k - 1);
+                System.out.print(sentence[c].charAt(sentence[c].length() - k - 1));
+                //reverse += sentence[c].substring(sentence[c].length() - (k + 1), sentence[c].length() - k);
+                //System.out.print(sentence[c].substring(sentence[c].length() - (k + 1), sentence[c].length() - k));
             }
             
             System.out.println();
@@ -216,8 +234,6 @@ static Random r = new Random();
         number to binary and store the bit into an 8 bit array. Then, display the binary
         number
         */
-        
-        Random r = new Random();
         
         int rnum = r.nextInt(256);
         int[] bit = new int[8];
@@ -250,6 +266,6 @@ static Random r = new Random();
         }
         */
         System.out.println("\n\nDone @ 151019, 05:45");
-        
+
     }
 }
