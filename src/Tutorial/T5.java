@@ -6,6 +6,7 @@
 package Tutorial;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.util.Random;
 public class T5 {
     
 static Random r = new Random();
+static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args) {
         
@@ -155,25 +157,42 @@ static Random r = new Random();
         //4. Write the statements that display the number of occurrence of the word "the" (case
         //   sensitive) in a string array name sentence. 
         
-        String word = "the";
+        System.out.print("\n\nType a sentence: ");
+        String userSen = s.nextLine();
+        String[] sentence = userSen.split("\\W+");
         
-        String[] sentence = {"the", "son", "is", "eating", "the", "apple", ".", "The", "son", "is", "the", "farmer"};
-        // String sentence = "the son is eating the apple. The son is the farmer";
-        // String[] splitsentence = sentence.split("\\W+");
+        System.out.print("Enter the word you want to find its frequency in the sentence above: ");
+        String word = s.next();
         
-        int cnt = 0, index;
+        System.out.print("\nSentence: ");
+        for(String ss : sentence) System.out.print(ss + " ");
+        int cnt = 0;
+        
+        for(int k = 0; k < sentence.length; k++){
+            
+            if(sentence[k].equals(word)) cnt++;
+            
+        }
+        
+        System.out.printf("\nThe number of occurance for the word \"%s\": %d\n", word, cnt);
+        
+        /* NOT SUGGESTED AS "thethe" the output of the count of "the" is 2
+        int cnt = 0, index = 0;
         
         for(int k = 0; k < sentence.length; k++){
             index = 0;
             
-            while((index = sentence[k].indexOf("the", index)) != -1){
+            while((index = sentence[k].indexOf(word, index)) != -1){
+                System.out.println(sentence[k]);
                 index++;
+                System.out.println("index: " + index);
                 cnt++;
+                System.out.println("count " + cnt);
             }
         }
-        System.out.print("The number of occurance for the word: ");
+        System.out.printf("\nThe number of occurance for the word \"%s\": %d\n", word, cnt);
+        */
         
-    }
         /* WRONG UNDERSTANDING
         int numOfPossible = (int) Math.pow(2, word.length());
         
@@ -205,19 +224,19 @@ static Random r = new Random();
         Each string element must be displayed in reverse order as well.
         */
         
-        String[] sentence = {"Abu is reading", "Ah Meng is sleeping", "racecar si racecar", "Muthu Toh"};
-        String[] reversedList = new String[sentence.length];
+        String[] sen = {"Abu is reading", "Ah Meng is sleeping", "racecar si racecar", "Muthu Toh"};
+        String[] reversedList = new String[sen.length];
         String reverse = "";
         {
-        for(int c = 0; c < sentence[c].length(); c++){
-            System.out.println("\nsentence: " + sentence[c]);
+        for(int c = 0; c < sen.length; c++){
+            System.out.println("\nSentence: " + sen[c]);
             
             System.out.print("Reversed: ");
-            for(int k = 0; k < sentence[c].length(); k++){
-                reverse += sentence[c].charAt(sentence[c].length() - k - 1);
-                System.out.print(sentence[c].charAt(sentence[c].length() - k - 1));
-                //reverse += sentence[c].substring(sentence[c].length() - (k + 1), sentence[c].length() - k);
-                //System.out.print(sentence[c].substring(sentence[c].length() - (k + 1), sentence[c].length() - k));
+            for(int k = 0; k < sen[c].length(); k++){
+                reverse += sen[c].charAt(sen[c].length() - k - 1);
+                System.out.print(sen[c].charAt(sen[c].length() - k - 1));
+                //reverse += sen[c].substring(sen[c].length() - (k + 1), sen[c].length() - k);
+                //System.out.print(sen[c].substring(sen[c].length() - (k + 1), sen[c].length() - k));
             }
             
             System.out.println();
@@ -226,7 +245,7 @@ static Random r = new Random();
         }
         
         System.out.print("\n============\nReversed list: ");
-        for(String cnt : reversedList)System.out.print(cnt + ", ");
+        for(String x : reversedList) System.out.print(x + ", ");
         System.out.println();
         
         /*
@@ -266,6 +285,6 @@ static Random r = new Random();
         }
         */
         System.out.println("\n\nDone @ 151019, 05:45");
-
+        }
     }
 }
