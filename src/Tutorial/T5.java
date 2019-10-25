@@ -235,6 +235,8 @@ static Scanner s = new Scanner(System.in);
             for(int k = 0; k < sen[c].length(); k++){
                 reverse += sen[c].charAt(sen[c].length() - k - 1);
                 System.out.print(sen[c].charAt(sen[c].length() - k - 1));
+                
+                // FOR SUBSTRING
                 //reverse += sen[c].substring(sen[c].length() - (k + 1), sen[c].length() - k);
                 //System.out.print(sen[c].substring(sen[c].length() - (k + 1), sen[c].length() - k));
             }
