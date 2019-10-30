@@ -64,7 +64,7 @@ public class FT17Q3 {
             temp = randnum[i];
             reversed = 0;
             
-            while(temp != 0){
+            while(temp > 0){        // OR while(temp != 1)
                 
                 digit = temp % 10;
                 reversed = (reversed * 10) +  digit;
