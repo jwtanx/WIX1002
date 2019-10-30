@@ -15,30 +15,28 @@ public class MT16Q2 {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter Integer (-1 to quit): ");
         int num = s.nextInt();
+        System.out.print(num + " ");
         int min = num;
-        int count = 0;
+        int count = 1;
         
         while(num != -1){
-            
             num = s.nextInt();
-            
             if(num == -1) break;
             
-            else{
-                if(num > 0 && num <= 9){
-                    if(num < min){
-                        min = num;
-                        count = 1;
-                    }
-                    else if(num == min) count++;
-                    
-                    System.out.print(num + " ");
+            else if(num > 0 && num <= 9){
+                System.out.print(num + " ");
+                
+                if(num < min) {
+                    min = num;
+                    count = 1;
+                } else if (num == min) {
+                    count++;
                 }
             } 
         }
         System.out.println("\nThe minimun number is " + min);
         System.out.println("The occurence count of " + min + " is " + count);
         
-        System.out.println("\n\nDone @ 301019, 22:00");
+        System.out.println("\nDone @ 301019, 22:00");
     }
 }
