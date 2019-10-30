@@ -21,7 +21,7 @@ public class FT17Q3 {
         Scanner s = new Scanner(System.in);
         Random r = new Random();
         
-        System.out.print("Enter the number of random integers: ");
+        System.out.print("Enter the number of random integers : ");
         int n = s.nextInt();
         int[] randnum = new int[n];
         int min;
@@ -57,7 +57,7 @@ public class FT17Q3 {
         // Display each integer in the array in a reverse order.
         int reversed;
         int digit;
-        System.out.print("\nThe random integer in reversed order: ");
+        System.out.print("\nThe random integer in reversed order : ");
         
         for(int i = 0; i < n; i++){
             
@@ -69,9 +69,14 @@ public class FT17Q3 {
                 digit = temp % 10;
                 reversed = (reversed * 10) +  digit;
                 temp /= 10;
+                if (reversed == 0) System.out.print("0");
                 
             }
+            
             System.out.print(reversed + "  ");
         }
+        
+        System.out.println("\n\nDone @ 311019, 00:50");
+        
     }
 }
