@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  * @author User
  */
-public class FT17Q2 {
+public class FT17S2Q2 {
     public static void main(String[] args) {
         
         Scanner s = new Scanner(System.in);

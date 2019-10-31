@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author User
  */
-public class FT17Q1 {
+public class FT17S2Q1 {
 
     public static void main(String[] args) {
         int N;
