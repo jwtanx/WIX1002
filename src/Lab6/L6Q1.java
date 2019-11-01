@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class L6Q1 {
 
-    static int triNum(int n){
+    public static int triNum(int n){
         
         int triangularNum = 0;
         
@@ -25,17 +25,26 @@ public class L6Q1 {
         
         Scanner s = new Scanner(System.in);
         
-        System.out.print("Enter value for n to find its triangular number: ");
+        System.out.print("Enter value for n such that n is the number of triangular numbers (Question wants n = 20): ");
         int n = s.nextInt();
         
-        for(int c = 1; c <= n; c++){
-            if(c == n)System.out.print(c);
-            else System.out.print(c + " + ");
+        System.out.print("The triangular numbers are: ");
+        for(int i = 1; i <= n; i++){
+            if(i == n) System.out.printf("%d\n", triNum(i));
+            else System.out.printf("%d, ", triNum(i));
         }
         
-        System.out.printf(" = %d\n\n", triNum(n));
+        for(int i = 1; i <= n; i++){
+            System.out.printf("%d = ", triNum(i));
+            
+            for(int c = 1; c <= i; c++){
+                if(c == i)System.out.println(c);
+                else System.out.print(c + " + ");
+            }
+            
+        }
         
-        System.out.println("Done @ 211019, 07:43");
+        System.out.println("\nDone @ 211019, 07:43");
         
     }
 }
