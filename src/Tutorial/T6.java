@@ -76,8 +76,8 @@ public class T6 {
     //Q1D. Define a static method that used to determine whether the parameter is a pentagonal number. A pentagonal number is a figurate number that extends the concept of triangular and square numbers to the pentagon. Pn = ½ n(3n -1) 
     static boolean checkPentagonal(int pnum){
         boolean d = false;
-        int Pn;
         
+        int Pn;
         for(int n = 0; n < pnum; n++){
             Pn = (n * ((3 * n) - 1)) / 2;
             
@@ -87,46 +87,34 @@ public class T6 {
             }
         }
         
-        // Teacher answer
-        /*
-        for(int pent = 1, n = 1; pent <= pnum; n++){
-            
-            pent = (n * ((3 * n) - 1)) / 2;
-            
-            if(pent == pnum || pent == 1) {
-                d = true;
-                break;
-            
-        }
-        */
-        
         return d;
     }
-    
     //Q1E. Define a static method that displays the number of letters and the number of digits of a String parameter. 
     static int[] numOfLetterNDigit(String sentence){
         
         int numOfLnD[] = new int[2];
         
+        // My answer
+        /*
         String numOfDigit = sentence.replaceAll("\\D+", "");
         String numOfLetter = sentence.replaceAll("\\W+", "");
         
         numOfLnD[0] = numOfDigit.length();
         numOfLnD[1] = numOfLetter.length() - numOfDigit.length();
+        */
         
         // Teacher answer
-        /*
+        
         int digitNum = 0;
         int letterNum = 0;
         
         for(int i = 0; i < sentence.length(); i++){
-            if(Character.isLetter(sentence.charAt(i)))letterNum++;
-            else digitNum++;
+            if(Character.isLetter(sentence.charAt(i))) letterNum++;
+            else if(Character.isDigit(sentence.charAt(i))) digitNum++;    
         }
         
         numOfLnD[0] = digitNum;
         numOfLnD[1] = letterNum;
-        */
         
         return numOfLnD;
     }
@@ -181,13 +169,13 @@ public class T6 {
         // Teacher Answer
         while(true){
             rnum = r.nextInt(11);
+            System.out.print("\nGenerated number: " + rnum);
             
             if(num[rnum] == 1){
-                duplicate = rnum;
-                return duplicate;
+                System.out.println(" <--- Duplicated");
+                return rnum;
             } else {
                 num[rnum] = 1;
-                System.out.println(num[rnum]);
             }
         }
     }
@@ -276,7 +264,7 @@ public class T6 {
             case 'F':
             case 'f':
                 //Q1F
-                System.out.println("\nQ1F: [CORRECTION NEEDED]");
+                System.out.println("\nQ1F:");
                 System.out.print("Select an index(1 - 10) of a list of generated num: ");
                 generateNum(s.nextInt() - 1);
                 break;
@@ -284,7 +272,7 @@ public class T6 {
             case 'G':
             case 'g':
                 //Q1G
-                System.out.println("\nQ1G: [CORRECTION NEEDED]");
+                System.out.println("\nQ1G:");
                 System.out.print("Enter radius of a circle to find area & circumference(cm): ");
                 double r = s.nextDouble();
                 areaNcircumference(r);
