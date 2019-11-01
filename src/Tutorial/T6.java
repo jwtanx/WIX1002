@@ -13,29 +13,45 @@ import java.util.Random;
  */
 public class T6 {
     
-    static Random r = new Random();
+    public static Random r = new Random();
     
     //Q1A. Define a static method that returns the maximum number from 3 integer parameters. 
-    static int findMax(int a, int b, int c){
+    public static int findMax(int a, int b, int c){
         
         int max = 0;
         
+        /*
         if(a > b && a > c) max = a;
         if(b > a && b > c) max = b;
         if(c > a && c > b) max = c;
+        */
+        
+        // Teacher answer
+        if(a > b && a > c) max = a;
+        else if(b > a && b > c) max = b;
+        else max = c;
         
         return max;
     }
     
     //Q1B. Define a static method that that determine whether the given integer is a square number
-    static boolean checkSqrtNum(int num){
+    public static boolean checkSqrtNum(int num){
         
         boolean a = false;
         
+        /*
         for(int c = 0;  c < num; c++) {
             if(num == Math.pow(c, 2)) {
                 a = true;
                 break;
+            }
+        }
+        */
+        
+        // Teacher answer
+        for(int i = 1; i*i <= num; i++){
+            if(i*i == num){
+                a = true;
             }
         }
         
@@ -43,7 +59,7 @@ public class T6 {
     }
     
     //Q1C. Define a static method that use to compute combination function C(n,k). C(n,k) gives the number of different k-element subsets that can be found in a given set of n elements. C(n,k) = n! / (k! (n-k)!)  
-    static BigInteger C(int n, int k){
+    public static BigInteger C(int n, int k){
         
         BigInteger Nfact = new BigInteger("1");             // <-- n!
         BigInteger Kfact = new BigInteger("1");             // <-- k!
@@ -70,6 +86,20 @@ public class T6 {
                 break;
             }
         }
+        
+        // Teacher answer
+        /*
+        for(int pent = 1, n = 1; pent <= pnum; n++){
+            
+            pent = (n * ((3 * n) - 1)) / 2;
+            
+            if(pent == pnum || pent == 1) {
+                d = true;
+                break;
+            
+        }
+        */
+        
         return d;
     }
     
@@ -84,11 +114,24 @@ public class T6 {
         numOfLnD[0] = numOfDigit.length();
         numOfLnD[1] = numOfLetter.length() - numOfDigit.length();
         
+        // Teacher answer
+        /*
+        int digitNum = 0;
+        int letterNum = 0;
+        
+        for(int i = 0; i < sentence.length(); i++){
+            if(Character.isLetter(sentence.charAt(i)))letterNum++;
+            else digitNum++;
+        }
+        
+        numOfLnD[0] = digitNum;
+        numOfLnD[1] = letterNum;
+        */
+        
         return numOfLnD;
     }
     
-    //Q1F. Define a static void method that generates 10 random numbers within 0 to 100 to the method’s parameter. The random numbers can be accessed by the main method. 
-    // [NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED CORRECTION SOON]
+    //Q1F. Define a static void method that generates 10 random numbers within 0 to 100 to the method’s parameter. The random numbers can be accessed(DISPLAYS) by the main method. 
     static void generateNum(int f){
         
         final int[] rnumlist = new int[10];
@@ -105,8 +148,7 @@ public class T6 {
         
     }
     
-    //Q1G. Define a static void method that returns the area and the circumference of a circle given the argument is radius. Area = πr2 and Circumference = 2 πr.
-    // [NEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED CORRECTION SOON]
+    //Q1G. Define a static void method that returns(DISPLAYS) the area and the circumference of a circle given the argument is radius. Area = πr2 and Circumference = 2 πr.
     static void areaNcircumference(double r){
         
         double area = Math.PI * Math.pow(r, 2);
@@ -123,6 +165,7 @@ public class T6 {
         int num[] = new int[11];
         int rnum, duplicate;
         
+        /*
         while(true){
             rnum = r.nextInt(11);
             System.out.print("\nGenerated number: " + rnum);
@@ -133,8 +176,20 @@ public class T6 {
                 break;
             }
         }
+        */
         
-        return duplicate;
+        // Teacher Answer
+        while(true){
+            rnum = r.nextInt(11);
+            
+            if(num[rnum] == 1){
+                duplicate = rnum;
+                return duplicate;
+            } else {
+                num[rnum] = 1;
+                System.out.println(num[rnum]);
+            }
+        }
     }
     
     //Q2. Write a program that consists of a method that can display three numbers in decreasing order.
