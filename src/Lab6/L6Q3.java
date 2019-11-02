@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class L6Q3 {
     
-    public static int[] reversed(int[] numlist){
+    public static void reversed(int[] numlist){
         
         int num;
         int revnum;
@@ -45,7 +45,6 @@ public class L6Q3 {
             
         }
 */
-        return numlist;
     }
     
     public static void main(String[] args) {
