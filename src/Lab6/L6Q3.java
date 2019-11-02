@@ -11,9 +11,8 @@ import java.util.Scanner;
  */
 public class L6Q3 {
     
-    static int[] reversed(int[] numlist){
+    public static int[] reversed(int[] numlist){
         
-        int[] rev = new int[numlist.length];
         int num;
         int revnum;
         
@@ -27,7 +26,7 @@ public class L6Q3 {
                 num /= 10;
             }
             
-            rev[c] = revnum;
+            numlist[c] = revnum;
         }
         
 // OLD VERSION
@@ -46,7 +45,7 @@ public class L6Q3 {
             
         }
 */
-        return rev;
+        return numlist;
     }
     
     public static void main(String[] args) {
@@ -69,12 +68,13 @@ public class L6Q3 {
             
         }
         
-        int[] getReversedNumList = reversed(numlist);
+        //int[] getReversedNumList = reversed(numlist);   <-- No need since array & objects are called by reference.
+        reversed(numlist);
         System.out.print("\nReversed number list\t: ");
-        for(int i = 0; i < getReversedNumList.length; i++){
+        for(int i = 0; i < numlist.length; i++){
             
-            if(i == getReversedNumList.length - 1) System.out.print(getReversedNumList[i]);
-            else System.out.print(getReversedNumList[i] + ", ");
+            if(i == numlist.length - 1) System.out.print(numlist[i]);
+            else System.out.print(numlist[i] + ", ");
             
         }
         
