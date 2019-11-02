@@ -1,6 +1,9 @@
 /*
  * 2. Write a Java method multiPrint(int n, char c) that prints n copies of character c. Then, write a Java program to use the method to display the triangles and diamonds. NEED UPDATE
- */
+
+Assume that n means the number of rows.
+
+*/
 package Lab6;
 
 import java.util.Scanner;
@@ -11,19 +14,15 @@ import java.util.Scanner;
  */
 public class L6Q2 {
     
-    static void multiPrint(int n, char c){
+    public static void multiPrint(int n, char c){
         
+        System.out.println("\n\nStanding triangle below: ");
         for(int i = 0; i < n; i++){
-            System.out.print(c);
-        }
-        
-        System.out.print("\n\nTriangle below: ");
-        for(int i = 0; i < n; i++){
-            for(int j = n; j > i; j--){
+            for(int j = n; j > i + 1; j--){
                 System.out.print(" ");
             }
             
-            for(int k = 0; k < ((2 * i) - 1); k++){
+            for(int k = 0; k < ((2 * i) + 1); k++){
                 System.out.print(c);
             }
             System.out.println();
