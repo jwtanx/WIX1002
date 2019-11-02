@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class L6Q5 {
     
-    static boolean checkMulti(int a, int b, int c){
+    public static boolean checkMulti(int a, int b, int c){
         
         boolean checkMulti = false;
         
