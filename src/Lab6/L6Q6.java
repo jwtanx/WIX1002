@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class L6Q6 {
 
-    static boolean isPrime(int n) {
+    public static boolean isPrime(int n) {
 
         for (int i = 2; i < n; i++) {
             if (n % i == 0) {
@@ -22,7 +22,7 @@ public class L6Q6 {
         return true;
     }
 
-    static boolean isPalindrome(int n) {
+    public static boolean isPalindrome(int n) {
 
         int num = n;
         int rev = 0;
@@ -40,7 +40,7 @@ public class L6Q6 {
 
     }
 
-    static boolean isEmirp(int n) {
+    public static boolean isEmirp(int n) {
 
         int num = n;
         int rev = 0;
@@ -58,7 +58,7 @@ public class L6Q6 {
 
     }
 
-    static int[] palindromeList(int n) {
+    public static int[] palindromeList(int n) {
 
         int i = 0;
         int num = 3;
@@ -78,7 +78,7 @@ public class L6Q6 {
         return pList;
     }
 
-    static int[] emirpList(int n) {
+    public static int[] emirpList(int n) {
 
         int i = 0;
         int num = 3;
