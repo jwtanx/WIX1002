@@ -1,0 +1,27 @@
+Tue Nov 05 18:34:25 SGT 2019
+
+1. Number generated: 890
+2. Number generated: 560
+3. Number generated: 815
+4. Number generated: 979
+5. Number generated: 323
+6. Number generated: 493
+7. Number generated: 367
+8. Number generated: 14
+9. Number generated: 467
+10. Number generated: 284
+
+
+2nd test
+Tue Nov 05 18:44:16 SGT 2019
+
+1. Number generated: 299
+2. Number generated: 488
+3. Number generated: 914
+4. Number generated: 638
+5. Number generated: 265
+6. Number generated: 523
+7. Number generated: 723
+8. Number generated: 169
+9. Number generated: 629
+10. Number generated: 392
