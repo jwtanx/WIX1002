@@ -2,7 +2,7 @@
  * 1a. Store ten random integers within 0 to 1000 to a text file name integer.txt
  */
 package Tutorial.T7;
-// remerge
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
