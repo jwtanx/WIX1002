@@ -46,7 +46,7 @@ public class T7Q1A {
             outputStream.close();
         } catch (IOException ioe) {
             //ioe.printStackTrace();
-            System.out.println("Problem with file");
+            System.err.println("Problem with file");
         }
 
     }
