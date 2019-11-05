@@ -19,13 +19,11 @@ public class T7Q1A {
     public static void main(String[] args) {
 
         Random r = new Random();
-        Date date = new Date();
+        //Date date = new Date();
 
         try {
             
-            File file = new File("C:/Users/User/Documents/NetBeansProjects/WIX1002/src/Tutorial/T7/T7Q1A.txt");
-            
-            PrintWriter outputStream = new PrintWriter(new FileOutputStream(file, true));
+            File file = new File("C:/Users/User/Documents/NetBeansProjects/WIX1002/src/Tutorial/T7/Files/T7Q1A.txt");
             
             /*
             if(file.exists()){
@@ -35,21 +33,19 @@ public class T7Q1A {
             file.createNewFile();
             */
             
-            outputStream.println();
-            outputStream.println();
-            outputStream.println(date);
-            outputStream.println();
+            PrintWriter outputStream = new PrintWriter(new FileOutputStream(file));
+            
+            //outputStream.println(date);
 
             for (int i = 0; i < 10; i++) {
-
-                outputStream.printf("%d. Number generated: %d", (i + 1), r.nextInt(1001));
-                outputStream.println();
-
+                outputStream.println(r.nextInt(1001));
             }
-            outputStream.flush();
-
+            
+            //outputStream.flush();
+            
+            outputStream.close();
         } catch (IOException ioe) {
-            ioe.printStackTrace();
+            //ioe.printStackTrace();
             System.out.println("Problem with file");
         }
 
