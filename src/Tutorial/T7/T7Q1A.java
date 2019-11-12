@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Random;
+//import java.util.Date;
 
 /**
  *
@@ -38,14 +38,14 @@ public class T7Q1A {
             //outputStream.println(date);
 
             for (int i = 0; i < 10; i++) {
-                outputStream.println(r.nextInt(1001));
+                outputStream.print(r.nextInt(1001));
             }
             
             //outputStream.flush();
-            
             outputStream.close();
-        } catch (IOException ioe) {
-            //ioe.printStackTrace();
+            
+        } catch (IOException e) {
+            //e.printStackTrace();
             System.err.println("Problem with file");
         }
 
