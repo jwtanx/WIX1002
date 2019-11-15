@@ -44,8 +44,9 @@ public class T7Q3 {
                 return null;
             }
         }
+
         */
-        //OR
+        // Latest version
         for(int i = 0; i < clist.length; i++){
             temp = String.format("%08d", Integer.parseInt(Integer.toBinaryString(clist[i])));
             bin += temp + " ";
@@ -69,7 +70,7 @@ public class T7Q3 {
             while(in.hasNext()){
                 
                 tmp = in.next();
-                System.out.println(tmp);
+                // System.out.println(tmp);
                 sentence += (char)Integer.parseInt(tmp, 2);
                 
             }
