@@ -20,8 +20,10 @@ public class T7Q3 {
         char[] clist = str.toCharArray();
         String bin = "";
         String temp;
-        int bit2Add;
         
+        // First version
+        /*
+        int bit2Add;
         for(int i = 0; i < clist.length; i++){
             temp = Integer.toBinaryString(clist[i]);
             
@@ -41,6 +43,12 @@ public class T7Q3 {
                 System.err.println("One of the character's ASCII code in your string exceed 8 bits");
                 return null;
             }
+        }
+        */
+        //OR
+        for(int i = 0; i < clist.length; i++){
+            temp = String.format("%08d", Integer.parseInt(Integer.toBinaryString(clist[i])));
+            bin += temp + " ";
         }
         
         return bin;
