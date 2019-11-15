@@ -17,7 +17,7 @@ public class T7Q1D {
     public static void main(String[] args) {
         
         int num = 0, sum = 0, numOfNum = 0;
-        int average;
+        double average;
         
         try{
             
@@ -34,8 +34,8 @@ public class T7Q1D {
                 
             }
             
-            average = sum / numOfNum;
-            System.out.println("\nAverage: " + average);
+            average = (double) sum / numOfNum;
+            System.out.printf("\nAverage: %.2f\n", average);
             
             in.close();
             
