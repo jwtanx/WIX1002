@@ -21,6 +21,6 @@ public class StudentTesterClass {
         a.setContactNumber("013-9990000");
         System.out.println(a.toString());
         
-        System.out.println("\nDone @ 191119 19:40");
+        System.out.println("\nDone @ 191119, 19:40");
     }
 }
