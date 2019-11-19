@@ -21,7 +21,7 @@ public class Student {
     // 1b. Declare the instance variable that used to store contact number.
     private String contactNumber;
 
-    // c. Create the constructor that initializes the contact number to null.
+    // 1c. Create the constructor that initializes the contact number to null.
     public Student() {
         contactNumber = null;
     }
