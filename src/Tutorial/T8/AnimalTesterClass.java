@@ -15,5 +15,8 @@ public class AnimalTesterClass {
         Animal cat = new Animal();
         cat.setName("Tom");
         System.out.println(cat.toString());
+        
+        System.out.println("\nDone @ 191119, 20:16");
+        
     }
 }
