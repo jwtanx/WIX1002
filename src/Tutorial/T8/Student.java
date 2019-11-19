@@ -9,9 +9,6 @@ e. Create an accessor and mutator method for the contact number.
 f. Create a method that used to display the contact number.
 g. Create an object of the class Student.
 h. Change the contact number using the mutator method.
-i. Create an object of the class Animal.
-j. Create an object of the class Animal that used to represent a cat. 
-k. Create an object of the class Number with the value 20 and 40.
  */
 package Tutorial.T8;
 
