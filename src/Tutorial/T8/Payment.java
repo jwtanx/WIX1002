@@ -9,7 +9,8 @@ public class Payment {
     private double amount;
     private String chequeNumber;
     private String cardHolderName;
-    private String cardType;
+    private char cardType;
+    private String cardTypeStr;
     private String expirationDate;
     private int validationCode;
     
@@ -18,7 +19,8 @@ public class Payment {
         amount = 0.00;
         chequeNumber = "";
         cardHolderName = "";
-        cardType = "";
+        cardType = '\0';
+        cardTypeStr = "";
         expirationDate = "00/00";
         validationCode = 0;
     }
@@ -39,7 +41,7 @@ public class Payment {
         return cardHolderName;
     }
 
-    public String getCardType() {
+    public char getCardType() {
         return cardType;
     }
 
@@ -50,7 +52,11 @@ public class Payment {
     public int getValidationCode() {
         return validationCode;
     }
-
+    
+    public String getCardTypeString(){
+        return cardTypeStr;
+    }
+    
     public void setCash(int cash) {
         this.cash = cash;
     }
@@ -64,15 +70,30 @@ public class Payment {
     }
 
     public void setCardHolderName(String cardHolderName) {
-        this.cardHolderName = cardHolderName;
+        this.cardHolderName = cardHolderName.toUpperCase();
     }
 
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
+    public void setCardType(char cardType) {
+        switch (cardType){
+            case 'D':
+            case 'd':
+                this.cardTypeStr = "Debit Card";
+                break;
+                
+            case 'C':
+            case 'c':
+                this.cardTypeStr = "Credit Card";
+                break;
+            
+            default:
+                this.cardTypeStr = "Debit Card";
+                
+        }
+//        this.cardType = cardType;
     }
 
     public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
+        this.expirationDate = expirationDate.substring(0,2) + "/" + expirationDate.substring(2, 4);
     }
 
     public void setValidationCode(int validationCode) {
@@ -96,7 +117,7 @@ public class Payment {
     }
     
     public String toStringCard(){
-        return "\nSummary\nCard Holder Name: " + cardHolderName + "\nCard Type\t: " + cardType + "\nExpiration Date\t: " + expirationDate + "\nValidation Code\t: " + validationCode;
+        return "\nSummary\nCard Holder Name: " + cardHolderName + "\nCard Type\t: " + cardTypeStr + "\nExpiration Date\t: " + expirationDate + "\nValidation Code\t: " + validationCode;
     }
     
     
