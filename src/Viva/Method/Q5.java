@@ -50,7 +50,7 @@ public class Q5 {
             convertInt = "";
         }
         
-        for(int i = 1000; i < 9999; i++){
+        for(int i = 1000; i < 9900; i++){   // <-- Set 9900 since it is impossible to get 9900 
             if( (String.valueOf(i).contains(String.valueOf(digit[0]))) &&
                 (String.valueOf(i).contains(String.valueOf(digit[1]))) &&
                 (String.valueOf(i).contains(String.valueOf(digit[2]))) &&
