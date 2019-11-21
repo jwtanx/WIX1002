@@ -16,25 +16,21 @@ import java.util.Scanner;
 
 public class Q2 {
 
-    static char c = '*';
-
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
 
-        multiPrint(5, c);
-
         System.out.print("Circle or rectangle? ");
         String choice = s.nextLine();
 
-        if (choice.equalsIgnoreCase("rectangle")) {
+        if (choice.equalsIgnoreCase("rectangle") || choice.contains("r")) {
             System.out.print("Enter width: ");
             int width = s.nextInt();
             System.out.print("Enter height: ");
             int height = s.nextInt();
 
             printRectangle(width, height);
-        } else if (choice.equalsIgnoreCase("circle")) {
+        } else if (choice.equalsIgnoreCase("circle") || choice.contains("c")) {
             System.out.print("Please input circle radius: ");
             int r = s.nextInt();
 
@@ -50,14 +46,13 @@ public class Q2 {
             System.out.print(c);
         }
 
-        System.out.println();
     }
 
     public static void printRectangle(int w, int h) {
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                System.out.print(c);
+                multiPrint(1, '*');
             }
             System.out.println();
         }
@@ -74,9 +69,11 @@ public class Q2 {
             }
 
             multiPrint(i, '*');
+            System.out.println();
             space--;
         }
         multiPrint(d, '*');
+        System.out.println();
         int space1 = 0;
         for (int i = d; i >= d - 4; i = i - 2) {
 
@@ -85,6 +82,7 @@ public class Q2 {
             }
             space1++;
             multiPrint(i, '*');
+            System.out.println();
 
         }
 
