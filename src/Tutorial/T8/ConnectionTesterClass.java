@@ -25,7 +25,7 @@ public class ConnectionTesterClass {
         b.disconnect();
         System.out.println(a.toString());
         
-        System.out.println("\nDone @ 211119, 19:47");
+        System.out.println("\nDone @ 211119, 19:50");
         
     }
 }
