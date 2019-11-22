@@ -22,12 +22,14 @@ public class Number {
     }
 
     public Number(int n) {
+        num = new int[n];
         for (int i = 0; i < n; i++) {
             num[i] = r.nextInt(101);
         }
     }
 
     public Number(int n, int range) {
+        num = new int[n];
         for (int i = 0; i < n; i++) {
             num[i] = r.nextInt(range + 1);
         }
