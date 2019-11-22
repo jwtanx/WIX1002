@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 public class Money {
     
     private double amount;
-    private DecimalFormat df2 = new DecimalFormat(".##");    
+    private DecimalFormat df2 = new DecimalFormat("#.##");    
     public Money(){
         amount = 0;
     }
@@ -69,8 +69,21 @@ public class Money {
             
         }
         
-        String temp = df2.format(Double.parseDouble(split[0] + "." + round1 + round2));
-        this.amount = Double.parseDouble(temp);
+        String temp = split[0] + "." + round1 + round2;
+        String finalTemp = "";
+        
+        for(int i = 0; i < temp.length(); i++){
+            
+            finalTemp += temp.charAt(i);
+            
+            if(temp.charAt(i) == '.'){
+                finalTemp += (temp.charAt(i+1) + temp.charAt(i+2));
+                break;  
+            }
+            
+        }
+        
+        this.amount = Double.parseDouble(finalTemp);
     }
     
     public String toString(){
