@@ -12,83 +12,179 @@ package Lab8;
 import java.text.DecimalFormat;
 
 // UNDONE
-
 public class Money {
-    
+
     private double amount;
-    private DecimalFormat df2 = new DecimalFormat("#.##");    
-    public Money(){
-        amount = 0;
-    }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void save(double amount){
-        this.amount += amount;
+    public Money(double amount) {
+        this.amount = amount;
     }
     
-    public void spend(double amount){
-        this.amount -= amount;
+    public void addition(double amt1, double amt2){
+        
+        amount = amt1 + amt2;
+        
+        System.out.println("The addition: RM" + amount);
+        
+        roundOff();
+        calculateAmount();
     }
     
-    public void roundOff(double amount){
+    public void subtraction(double amt1, double amt2){
         
-        String num = String.valueOf(amount);
-        
-        String split[] = num.split(".");
-        
-        String sen = split[1];
-        
-        String round1 = String.valueOf(sen.charAt(0));
-        String round2 = String.valueOf(sen.charAt(1));
-        
-        switch(round2){
-            
-            case "0":
-            case "1":
-            case "2":
-                round2 = "0";
-                break;
-                
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-                round2 = "5";
-                break;
-                
-            case "8":
-            case "9":
-                // if round 1 which is x in 0.x, = 9 and it is round off the split[0].charAt(split[0].length()-1) "+1"
-                round1 = String.valueOf(Integer.parseInt(round1) + 1);
-                round2 = "0";
-                break;
-            
+        if(amt1 >= amt2){
+            amount = amt1 - amt2;
+        }
+        else{
+            amount = amt2 - amt1;
         }
         
-        String temp = split[0] + "." + round1 + round2;
-        String finalTemp = "";
+        System.out.println("The subtraction: RM" + amount);
         
-        for(int i = 0; i < temp.length(); i++){
+        roundOff();
+        calculateAmount();
+        
+    }
+    
+    public void roundOff(){
+        
+        int bigAmount = (int) amount;
+        
+        double smallAmount = amount - bigAmount;
+        
+        String twoDecimal = String.format("%.2f", smallAmount);
+        
+        int sen = (int) (Double.parseDouble(twoDecimal) * 100);
+        
+        String senTimes100 = String.valueOf(sen);
+        
+        String temp = "";
+        
+        switch(senTimes100.charAt(1)){
             
-            finalTemp += temp.charAt(i);
+            case '0':
+            case '1':
+            case '2':
+                temp = senTimes100.charAt(0) + "0";
+                break;
+                
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+                temp = senTimes100.charAt(0) + "5";
+                break;
             
-            if(temp.charAt(i) == '.'){
-                finalTemp += (temp.charAt(i+1) + temp.charAt(i+2));
-                break;  
+            case '8':
+                
+                if(senTimes100.charAt(0) == '9'){
+                    bigAmount++; 
+                }
+                else{
+                    sen += 2;
+                    temp = String.valueOf(sen);
+                }
+                break;
+                
+            case '9':
+                
+                if(senTimes100.charAt(0) == '9'){
+                    bigAmount++; 
+                }
+                else{
+                    sen++; 
+                    temp = String.valueOf(sen);
+                }
+                break;
+                
+            default:
+                
+        }
+        
+        String converted = String.valueOf(bigAmount) + "." + temp;
+        
+        double finalConverted = Double.parseDouble(converted);
+        
+        amount = finalConverted;
+        
+        System.out.printf("The round off: RM %.2f\n", finalConverted);
+    }
+    
+    public void calculateAmount() {
+
+        int bigAmount = (int) amount;
+        int tempBigAmount = bigAmount;
+        
+        int hundred = 0, fifty = 0, ten = 0, five = 0, one = 0;
+
+        while (bigAmount != 0) {
+
+            if (bigAmount >= 100) {
+                bigAmount -= 100;
+                hundred++;
+            }
+            else if (bigAmount >= 50) {
+                bigAmount -= 50;
+                fifty++;
+            }
+            else if (bigAmount >= 10) {
+                bigAmount -= 10;
+                ten++;
+            }
+            else if (bigAmount >= 5) {
+                bigAmount -= 5;
+                five++;
+            }
+            else if (bigAmount >= 1) {
+                bigAmount -= 1;
+                one++;
+            } 
+            else {
+                break;
+            }
+        }
+        
+        double smallAmount = amount - tempBigAmount;
+        
+        String twoDecimal = String.format("%.2f", smallAmount);
+        
+        int senAmount = (int) (Double.parseDouble(twoDecimal) * 100);
+        
+        int fiftySen = 0, twentySen = 0, tenSen = 0, fiveSen = 0;
+        
+        while(senAmount != 0){
+            
+            if (senAmount >= 50) {
+                senAmount -= 50;
+                fiftySen++;
+            }
+            else if (senAmount >= 20) {
+                senAmount -= 20;
+                twentySen++;
+            }
+            else if (senAmount >= 10) {
+                senAmount -= 10;
+                tenSen++;
+            }
+            else if (senAmount >= 5) {
+                senAmount -= 5;
+                fiveSen++;
+            }
+            else {
+                break;
             }
             
         }
         
-        this.amount = Double.parseDouble(finalTemp);
+        System.out.println("\nList: ");
+        System.out.printf("RM100: %d\nRM 50: %d\nRM 10: %d\nRM  5: %d\nRM  1: %d\n", hundred, fifty, ten, five, one);
+        System.out.printf("50 Cents: %d\n20 Cents: %d\n10 Cents: %d\n5  Cents: %d\n", fiftySen, twentySen, tenSen, fiveSen);
+        
     }
-    
-    public String toString(){
-        return "Current Amount : $ " + amount;
+
+    public String toString() {
+        return "Current Amount : RM " + amount + "\n";
     }
-    
-    
+
 }
