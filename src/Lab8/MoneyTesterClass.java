@@ -9,7 +9,6 @@ Before Rounding                 After Rounding
  */
 package Lab8;
 
-import java.util.Random;
 import java.util.Scanner;
 
 // UNDONE
@@ -17,51 +16,24 @@ import java.util.Scanner;
 public class MoneyTesterClass {
     public static void main(String[] args) {
         
-        Random r = new Random();
         Scanner s = new Scanner(System.in);
-        Money user = new Money();
-        int choice;
         
-        double[] NotesNCent = {100, 50, 10, 5, 1, 0.50, 0.10, 0.05};
+        System.out.print("Enter an amount: RM ");
+        double amount = s.nextDouble();
+        Money user = new Money(amount);
         
-        // You are given random pocket money
-        for(int i = 0; i < r.nextInt(100); i++){
-            choice = r.nextInt(8);
-            user.save(NotesNCent[choice]);
-            System.out.println("You saved : $ " + String.format("%.2f", NotesNCent[choice]));
-        }
+        user.roundOff();
+        user.calculateAmount();
+        System.out.println(user.toString());
         
-        System.out.println(user.toString() + "\n");
+        System.out.println("\nTest 1");
+        user.addition(123.32, 66.67);
         
-//        // You didnt spend your money wisely
-//        for(int i = 0; i < r.nextInt(5); i++){
-//            choice = r.nextInt(8);
-//            user.spend(NotesNCent[choice]);
-//            System.out.println("You spend : $ " + NotesNCent[choice]);
-//        }
-//        
-//        System.out.println(user.toString());
+        System.out.println("\nTest 2");
+        user.subtraction(123.23, 22.01);
         
-        boolean run = true;
-        double amt;
-        double totalAmt = 0;
-        
-        while(run){
-            System.out.print("How much you spend? : $ ");
-            amt = s.nextDouble();
-            totalAmt += amt;
-            System.out.println(totalAmt);
-            
-            if(amt < 0){
-                user.roundOff(totalAmt);
-                System.out.println(user.toString());
-                run = false;
-                break;
-            }else{
-                user.spend(amt);
-            }
-        }
-        
+        System.out.println("\nTest 3");
+        user.subtraction(13.23, 222.01);
         
     }
 }
