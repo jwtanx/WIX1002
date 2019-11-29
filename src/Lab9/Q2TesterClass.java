@@ -24,7 +24,7 @@ public class Q2TesterClass {
         
         File f = new File("C:\\Users\\User\\Documents\\NetBeansProjects\\WIX1002\\src\\Lab9\\Source\\course.txt");
         
-        Q2Student a = new Q2Student("Ali", 'M', "123456", f);
+        Q2Student a = new Q2Student("Ali", 'M', "25062001", f);
         a.transferData();
         a.display();
         
