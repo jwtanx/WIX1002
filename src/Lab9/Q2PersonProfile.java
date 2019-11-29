@@ -31,7 +31,7 @@ public class Q2PersonProfile {
 
 //    @Override
     public String toString() {
-        return "Name: " + name + "\nGender: " + gender + "\nDOB: " + DOB.substring(0,2) + "/" + DOB.substring(2,4) + "/" + DOB.substring(4,6);
+        return "Name: " + name + "\nGender: " + gender + "\nDOB: " + DOB.substring(0,2) + "/" + DOB.substring(2,4) + "/" + DOB.substring(4);
     }
     
     
