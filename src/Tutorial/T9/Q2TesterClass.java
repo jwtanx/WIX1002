@@ -10,8 +10,9 @@ public class Q2TesterClass {
         
         Random r = new Random();
         
-        Q2Animal a = new Q2Animal(1 + r.nextInt(100));
+        Q2Animal a = new Q2Animal(Math.round(r.nextDouble()*1000)/100.00);
         
         System.out.println(a.toString());
-    }
+        
+    }    
 }
