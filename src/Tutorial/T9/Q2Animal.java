@@ -5,19 +5,16 @@ package Tutorial.T9;
 
 public class Q2Animal extends Q2Organism{
     
-    private int amountOfEatingNeed;
+    private double amountOfEatingNeed;
     
-    public Q2Animal(int amountOfEatingNeed) {
+    public Q2Animal(double amountOfEatingNeed) {
         super();
         this.amountOfEatingNeed = amountOfEatingNeed;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\nAmount Of Eating Need : " + amountOfEatingNeed;
+        return super.toString() + "\nAmount Of Eating Need : " + amountOfEatingNeed + " ton";
     }
-    
-    
-    
     
 }
