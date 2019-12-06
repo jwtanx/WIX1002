@@ -10,7 +10,7 @@ public class Q4TesterClass {
         p1.calTotalPrice();
         System.out.println(p1.toString());
         
-        Q4SugarPurchase s1 = new Q4SugarPurchase("Ice-Cream Box", 9.99, 5, 12.2);
+        Q4SugarPurchase s1 = new Q4SugarPurchase("Ice-Cream Box", 7.23, 2, 12.2);
         s1.calTotalPrice();
         System.out.println(s1.toString());
         
