@@ -13,6 +13,7 @@ public class Q4SugarPurchase extends Q4PurchaseSystem{
         this.sugarWeight = sugarWeight;
     }
     
+    @Override
     public void calTotalPrice(){
         super.totalPrice = unitPrice * quantity * sugarWeight;
     }
