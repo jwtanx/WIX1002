@@ -3,10 +3,6 @@
  */
 package Lab10;
 
-/**
- *
- * @author User
- */
 public interface Q2MessageEncoder {
     
     public void encode();

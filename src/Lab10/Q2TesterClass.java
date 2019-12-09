@@ -3,10 +3,6 @@
  */
 package Lab10;
 
-/**
- *
- * @author User
- */
 public class Q2TesterClass {
     public static void main(String[] args) {
         

@@ -10,10 +10,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-/**
- *
- * @author User
- */
 // can implements 
 public class Q2SubstitutionCipher implements Q2MessageEncoder{
     
