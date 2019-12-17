@@ -4,7 +4,7 @@
 package Lab10;
 
 // UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE UNDONE
-
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,60 +16,90 @@ public class Q3ShuffleCipher implements Q2MessageEncoder {
 
     private String directory = "C:\\Users\\User\\Documents\\NetBeansProjects\\WIX1002\\src\\Lab10\\Source\\";
     private String inputFileName, outputFileName;
+    private String tempDecode, tempEncode;
     private int N;
 
     public Q3ShuffleCipher(String inputFileName, String outputFileName, int N) {
         this.inputFileName = directory + inputFileName;
         this.outputFileName = directory + outputFileName;
+        tempEncode = directory + "tempEncode.txt";
+        tempDecode = directory + "tempDecode.txt";
         this.N = N;
     }
 
     public void encode() {
 
+        // Copy
         try {
-            PrintWriter p = new PrintWriter(new FileOutputStream(outputFileName));
             Scanner s = new Scanner(new FileInputStream(inputFileName));
-
-            System.out.println("Encoded: ");
+            PrintWriter p = new PrintWriter(new FileOutputStream(tempEncode));
 
             while (s.hasNextLine()) {
 
-                String str = s.nextLine();
-                char[] firstHalf = new char[str.length() / 2];
-                char[] secondHalf = new char[str.length() - (str.length() / 2)];
-                String temp = "";
+                p.println(s.nextLine());
 
-                for (int n = 0; n < N; n++) {
-                    for (int i = 0; i < (str.length() / 2); i++) {
-
-                        firstHalf[i] = str.charAt(i);
-
-                    }
-
-                    for (int i = (str.length()/2) + 1, j = 0; i < str.length(); i++, j++) {
-                        
-                        secondHalf[j] = str.charAt(i);
-
-                    }
-
-                    for (int i = 0; i < firstHalf.length + secondHalf.length; i++) {
-
-                        if (i % 2 == 0) {
-                            if(i/2 < firstHalf.length){
-                                temp += firstHalf[i/2];
-                            }
-                        } else {
-                            temp += secondHalf[i/2];
-                        }
-
-                    }
-                }
-                p.println(temp);
-                System.out.println(temp);
             }
+
             p.close();
             s.close();
+        } catch (FileNotFoundException fnf) {
+            System.err.println("File not found!");
+        } catch (IOException e) {
+            System.err.println("Problem with writing file!");
+        }
+        String tempFile = "";
+        try {
+            for (int c = 0; c < N; c++) {
+                if (c != 0) {
+                    tempFile = outputFileName;
+                    outputFileName = tempEncode;
+                    tempEncode = tempFile;
+                }
 
+                Scanner s = new Scanner(new FileInputStream(tempEncode));
+                PrintWriter p = new PrintWriter(new FileOutputStream(outputFileName));
+
+//                System.out.println("\nEncoded: ");
+
+                while (s.hasNextLine()) {
+
+                    String str = s.nextLine();
+                    String firstHalf = str.substring(0, str.length() / 2);
+                    String secondHalf = str.substring(str.length() / 2);
+                    String encoded = "";
+
+                    for (int i = 0; i < str.length(); i++) {
+
+                        // If string length is even
+                        if (str.length() % 2 == 0) {
+                            if (i % 2 == 0) {
+                                if (i / 2 < firstHalf.length()) {
+                                    encoded += firstHalf.charAt(i / 2);
+                                }
+
+                            } else {
+                                encoded += secondHalf.charAt(i / 2);
+                            }
+                        } else {
+                            if (i == str.length() - 1) {
+                                encoded += str.charAt(str.length() - 1);
+                            } else {
+                                if (i % 2 == 0) {
+                                    if (i / 2 < firstHalf.length()) {
+                                        encoded += firstHalf.charAt(i / 2);
+                                    }
+                                } else {
+                                    encoded += secondHalf.charAt(i / 2);
+                                }
+                            }
+                        }
+                    }
+                    p.println(encoded);
+//                    System.out.println(encoded);
+                }
+                p.close();
+                s.close();
+            }
         } catch (FileNotFoundException fnf) {
             System.err.println("File not found!");
         } catch (IOException ioe) {
@@ -79,49 +109,69 @@ public class Q3ShuffleCipher implements Q2MessageEncoder {
     }
 
     public void decode() {
+        String tempFile = "";
         try {
-            Scanner s = new Scanner(new FileInputStream(outputFileName));
+            for (int c = 0; c < N; c++) {
+                if (c == 0) {
+                    tempDecode = inputFileName;
+                } else {
+                    tempFile = outputFileName;
+                    outputFileName = tempDecode;
+                    tempDecode = tempFile;
+                }
 
-            System.out.println("\nDecoded: ");
+                Scanner s = new Scanner(new FileInputStream(tempDecode));
+                PrintWriter p = new PrintWriter(new FileOutputStream(outputFileName));
 
-            while (s.hasNextLine()) {
+//                System.out.println("\nDecoded: ");
 
-                String str = s.nextLine();
-                char[] firstHalf = new char[str.length() / 2];
-                char[] secondHalf = new char[str.length() - (str.length() / 2)];
-                String temp = "";
-                for (int n = 0; n < N; n++) {
-                    for (int i = 0; i < (str.length() / 2); i++) {
+                while (s.hasNextLine()) {
 
-                        firstHalf[i] = str.charAt(i);
+                    String code = s.nextLine();
+                    String firstHalf = "";
+                    String secondHalf = "";
+                    String decoded = "";
 
-                    }
+                    for (int i = 0; i < code.length(); i++) {
 
-                    for (int i = (str.length()/2) + 1, j = 0; i < str.length(); i++, j++) {
-                        
-                        secondHalf[j] = str.charAt(i);
-
-                    }
-
-                    for (int i = 0; i < firstHalf.length + secondHalf.length; i++) {
-
-                        if (i % 2 == 0) {
-                            if(i/2 < firstHalf.length){
-                                temp += secondHalf[i/2];
+                        if (code.length() % 2 == 0) {
+                            if (i % 2 == 0) {
+                                firstHalf += code.charAt(i);
+                            } else {
+                                secondHalf += code.charAt(i);
                             }
                         } else {
-                            temp += firstHalf[i/2];
+                            if (i == code.length() - 1) {
+                                secondHalf += code.charAt(code.length() - 1);
+                            } else {
+                                if (i % 2 == 0) {
+                                    firstHalf += code.charAt(i);
+                                } else {
+                                    secondHalf += code.charAt(i);
+                                }
+                            }
                         }
-
                     }
+                    decoded = firstHalf + secondHalf;
+                    p.println(decoded);
+//                    System.out.println(decoded);
                 }
-                System.out.println(temp);
-            }
 
-            s.close();
+                p.close();
+                s.close();
+
+            }
         } catch (FileNotFoundException fnf) {
             System.err.println("File not found");
+        } catch (IOException e) {
+            System.err.println("Problem with writing ");
         }
+        
+        File encode = new File(tempEncode);
+        if(encode.delete()){
+            System.err.println("Deleted Temp Encode.");
+        }
+        
     }
 
 }
