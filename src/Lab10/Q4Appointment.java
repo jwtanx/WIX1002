@@ -48,8 +48,11 @@ public class Q4Appointment implements Q4Searchable {
                 
                 // Checking if starting appoint before current exact time
                 do{
-                    System.out.print("Enter start appointment date in format (eg. 30/12/2019 18:56): ");
+                    System.out.print("Enter start appointment date in format (eg. 30/12/2019 18:56) [Type \"Q\" to Quit]: ");
                     start = s.nextLine();
+                    if(start.equalsIgnoreCase("q")){
+                        System.exit(0);
+                    }
 
                     if (sdf.parse(start).before(now)) {
                         System.err.println("Forget the past. Let's move forward.");
@@ -61,9 +64,12 @@ public class Q4Appointment implements Q4Searchable {
                 
                 // Checking if end appointment is after start appoint
                 do{
-                    System.out.print("Enter end appointment date in format (eg. 31/12/2019 00:56): ");
+                    System.out.print("Enter end appointment date in format (eg. 31/12/2019 00:56) [Type \"Q\" to Quit]: ");
                     end = s.nextLine();
-
+                    if(end.equalsIgnoreCase("q")){
+                        System.exit(0);
+                    }
+                    
                     if (sdf.parse(end).before(sdf.parse(start))) {
                         System.err.println("You cannot do things in reverse time. That's illegal.");
                     } else {
