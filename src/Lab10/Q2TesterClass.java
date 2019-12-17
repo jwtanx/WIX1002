@@ -6,7 +6,7 @@ package Lab10;
 public class Q2TesterClass {
     public static void main(String[] args) {
         
-        Q2SubstitutionCipher a = new Q2SubstitutionCipher("in.txt", "out.txt", 10);
+        Q2SubstitutionCipher a = new Q2SubstitutionCipher("in.txt", "out.txt", 4);
         a.encode();
         a.decode();
         
