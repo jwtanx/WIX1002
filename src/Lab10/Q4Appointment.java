@@ -35,7 +35,6 @@ public class Q4Appointment implements Q4Searchable {
                 PrintWriter p = new PrintWriter(new FileOutputStream(appointment));
 
                 p.println("01/01/1970 00:00 -> 01/01/1970 00:00 -> Default");
-                p.println();
 
                 p.close();
             } catch (IOException ioe) {
