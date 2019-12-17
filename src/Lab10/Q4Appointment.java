@@ -14,8 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Q4Appointment implements Q4Searchable {
 
@@ -67,7 +65,7 @@ public class Q4Appointment implements Q4Searchable {
                     end = s.nextLine();
 
                     if (sdf.parse(end).before(sdf.parse(start))) {
-                        System.err.println("As far as I am being a human, you cannot do things in reverse time.");
+                        System.err.println("You cannot do things in reverse time. That's illegal.");
                     } else {
                         break;
                     }
@@ -85,7 +83,8 @@ public class Q4Appointment implements Q4Searchable {
                 }
             } while (true);
         } catch (ParseException pe) {
-            System.err.println("Parsing error.");
+            System.err.println("Parsing error. System restarted.");
+            askStartEndNCreateAppointment();
         }
     }
 
@@ -136,7 +135,7 @@ public class Q4Appointment implements Q4Searchable {
                         return true;
                     }
                 } else {
-                    System.err.println("Appointment clashes: " + StartNEnd[2]);
+                    System.err.println("Appointment clashes: " + "[" + StartNEnd[0] + " -> " + StartNEnd[1] + "] - " + StartNEnd[2]);
                     return false;
                 }
             }
@@ -144,9 +143,9 @@ public class Q4Appointment implements Q4Searchable {
             sc.close();
 
         } catch (ParseException pe) {
-            System.err.println("Error parsing your inputted time.");
+            System.err.println("Parsing error. Impossible. If it happens, contact me please.");
         } catch (FileNotFoundException ex) {
-            System.err.println("File not found!");
+            System.err.println("File not found! Most probably you need to change your harddisk.");
         }
 
         return true;
