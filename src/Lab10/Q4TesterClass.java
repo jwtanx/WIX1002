@@ -10,7 +10,7 @@ package Lab10;
  * @author User
  */
 public class Q4TesterClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         Q4Appointment a = new Q4Appointment();
         

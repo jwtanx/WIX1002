@@ -14,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Q4Appointment implements Q4Searchable {
 
@@ -27,39 +29,43 @@ public class Q4Appointment implements Q4Searchable {
     }
 
     public void askStartEndNCreateAppointment() {
-        
-        if(!appointment.exists()){
-            try{
+
+        if (!appointment.exists()) {
+            try {
                 PrintWriter p = new PrintWriter(new FileOutputStream(appointment));
-                
-                p.println("01/01/1970 00:00 -> 01/01/1970 00:00");
-                
+
+                p.println("01/01/1970 00:00 -> 01/01/1970 00:00 -> Default");
+                p.println();
+
                 p.close();
-            } catch (IOException ioe){
+            } catch (IOException ioe) {
                 System.err.println("Problem creating appointment file");
             }
         }
-        
+
         String start = "";
         String end = "";
+        try {
+            do {
+                System.out.print("Enter appointment date in format (eg. 30/12/2019 18:56): ");
+                start = s.nextLine();
 
-        do {
-            System.out.print("Enter appointment date in format (eg. 30/12/2019 18:56): ");
-            start = s.nextLine();
+                System.out.print("Enter appointment date in format (eg. 31/12/2019 00:56): ");
+                end = s.nextLine();
 
-            System.out.print("Enter appointment date in format (eg. 31/12/2019 00:56): ");
-            end = s.nextLine();
-
-            if (search(start, end)) {
-                setAppointment(start + " -> " + end);
-                System.out.println("Appointment saved!");
-                System.out.println("Your appointment: " + start + " -> " + end);
-                break;
-            } else {
-                System.err.println("Appointment clashes, please choose other time.");
-            }
-        } while (!search(String.valueOf(start), String.valueOf(end)));
-
+                if (search(start, end)) {
+                    System.out.print("Time available! Insert appointment detail: ");
+                    String detail = s.nextLine();
+                    setAppointment(sdf.format(sdf.parse(start)) + " -> " + sdf.format(sdf.parse(start)) + " -> " + detail);
+                    System.out.println("Appointment saved!");
+                    break;
+                } else {
+                    System.err.println("Please choose other time.");
+                }
+            } while (!search(start, end));
+        } catch (ParseException pe) {
+            System.err.println("Parsing error.");
+        }
     }
 
     public void setAppointment(String appointmentStr) {
@@ -76,10 +82,19 @@ public class Q4Appointment implements Q4Searchable {
     }
 
     @Override
-    public boolean search(String dateStarttime, String dateEndTime) {
-
+    public boolean search(String dateStartTime, String dateEndTime) {
+        
         try {
-            Date newAppointmentStart = sdf.parse(dateStarttime);
+            Date d = new Date();
+            if(sdf.parse(dateStartTime).before(d)){
+                return false; 
+            }
+        } catch (ParseException ex) {
+            System.err.println("Parse error.");
+        }
+        
+        try {
+            Date newAppointmentStart = sdf.parse(dateStartTime);
             Date newAppointmentEnd = sdf.parse(dateEndTime);
 
             Scanner sc = new Scanner(new FileInputStream(appointment));
