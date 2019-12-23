@@ -10,25 +10,34 @@
  */
 package Exercise.PastFinalTerm;
 
-/**
- *
- * @author User
- */
-// NEED UPDATE AFTER LEARNT GETTING FILE TXT
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class FT16S1Q4 {
 
     public static void main(String[] args) {
+        
+        File password = new File("C:/Users/User/Documents/NetBeansProjects/WIX1002/src/Exercise/PastFinalTerm/FT16S1Sources/FT16S1Q4Source.txt");
+        
+        try{
+            Scanner s = new Scanner(new FileInputStream(password));
+            
+            while (s.hasNextLine()) {
+                String p = s.nextLine();
 
-        // Setting password
-        String p = "abAc1234@";
-
-        if (got8Char(p.length()) && gotDigit(p) && gotLower(p) && gotUpper(p) && gotSymbol(p)) {
-            System.out.println("Strong password.");
-        } else {
-            System.out.println("Not a strong password.");
+                if (got8Char(p.length()) && gotDigit(p) && gotLower(p) && gotUpper(p) && gotSymbol(p)) {
+                    System.out.println("Strong password.");
+                } else {
+                    System.out.println("Not a strong password.");
+                }
+            }
+            s.close();
+        } catch (FileNotFoundException fnf){
+            System.err.println("Password file not found.");
         }
         
-        System.out.println("\nDone @ 311019, 20:00");
     }
 
     public static boolean got8Char(int l) {
@@ -75,7 +84,6 @@ public class FT16S1Q4 {
             if (Character.isDigit(pw.charAt(i))) {
                 return true;
             }
-
         }
 
         return false;
