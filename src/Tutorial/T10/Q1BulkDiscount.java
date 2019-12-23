@@ -7,7 +7,7 @@ public class Q1BulkDiscount extends Q1DiscountPolicy{
     
     private double minimum, discountRate;
     
-    public Q1BulkDiscount(int minimum, double discountRate) {
+    public Q1BulkDiscount(double minimum, double discountRate) {
         this.minimum = minimum;
         this.discountRate = discountRate;
     }
