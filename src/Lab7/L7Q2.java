@@ -34,7 +34,7 @@ public class L7Q2 {
             while (in.hasNextLine()) {
                 outHTM.println(in.nextLine());
             }
-
+            
             in.close();
             outHTM.close();
 
