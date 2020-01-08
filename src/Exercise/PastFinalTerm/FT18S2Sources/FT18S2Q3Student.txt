@@ -1,0 +1,10 @@
+Ali,62
+Abu,89
+Kuma,78
+Chewbacca Chewy,10
+Steve,-1
+Sonny,23
+Poska,58
+Eiqa,-1
+Frankenstein Jr,97
+Loaki,-1
