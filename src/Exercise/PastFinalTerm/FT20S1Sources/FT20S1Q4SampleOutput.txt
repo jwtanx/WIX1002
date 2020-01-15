@@ -52,8 +52,8 @@ Job ID      Submitted (queue)       Started (start time)    Exited (end time/err
 ------      -----------------       --------------------    -----------------------
 14126       Y (um)                  Y (1488329100)          null
 14127       Y (um)                  Y (1488338423)          1488341790
-14129       Y (um)                  Y (1488340391)          Error: Exit Status 134
+14129       Y (um)                  Y (1488340391)          Error: Exit_Status=134
 14130       Y (um)                  Y (1488341800)          null
-14132       Y (gpu)                 Y (1488358492)          Error: Exit Status -2
+14132       Y (gpu)                 Y (1488358492)          Error: Exit_Status=-2
 
 ****************************************
