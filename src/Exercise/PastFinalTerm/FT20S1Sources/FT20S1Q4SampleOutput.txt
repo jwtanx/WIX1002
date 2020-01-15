@@ -1,0 +1,59 @@
+Reading from log file... 
+****************************************
+Records read from log file 
+
+Record 1: 
+    03/01/2017 
+    00:44:56:Q;14126.ce2.dice.um.edu.my;queue-um 
+
+Record 2: 
+    03/01/2017 
+    00:45:00;S;14126.ce2.dicc.um.edu.my;user=weng 
+    group=um 
+    jobname=Gaussian 
+    queue=um ctime=1488329096
+    qtime=1488329096
+    etime=1488329096
+    start=1488329100
+    Owner=weng@ce2.dicc.um.edu.my
+    exec host=compute07.sifir.um.edu.my/63+compute07.sifir.um.edu.my/62+compute07.sifir.um.edu.my/61+compute07.sifir.um.edu.my/60+compute07.sifir.um.edu.my/59+compute07.sifir.um.edu.my/58+compute07.sifir.um.edu.my/57+compute07.sifir.um.edu.my/56+compute07.sifir.um.edu.my/55+compute07.sifir.um.edu.my/54+compute07.sifir.um.edu.my/53+compute07.sifir.um.edu.my/52+compute07.sifir.um.edu.my/51+compute07.sifir.um.edu.my/50+compute07.sifir.um.edu.my/49+compute07.sifir.um.edu.my/48
+    Resource_List.neednodes=1:ppn=16 
+    Resource_List.nodect=1 
+    Resource List.nodes=1:ppn=16 
+    Resource List.walltime=700:00:00
+
+Record 3: 
+    03/01/2017
+    03:20:22;Q;14127.ce2.dicc.um.edu.my;queue=um
+
+...
+
+    resources_used.cput=00:00:00
+    resources_used.mem=0kb 
+    resources_used.vmem=0kb 
+    resources_used.walltime=00:00:00 
+    
+total records read: 13 
+
+****************************************
+Print user submission stat 
+
+User            Jobs Submitted
+----            --------------
+weng            1
+wiliam          2
+sharif          1
+afandi          1
+
+****************************************
+Print jobs status 
+
+Job ID      Submitted (queue)       Started (start time)    Exited (end time/error)
+------      -----------------       --------------------    -----------------------
+14126       Y (um)                  Y (1488329100)          null
+14127       Y (um)                  Y (1488338423)          1488341790
+14129       Y (um)                  Y (1488340391)          Error: Exit Status 134
+14130       Y (um)                  Y (1488341800)          null
+14132       Y (gpu)                 Y (1488358492)          Error: Exit Status -2
+
+****************************************
