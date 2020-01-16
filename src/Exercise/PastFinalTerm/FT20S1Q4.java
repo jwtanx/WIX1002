@@ -84,7 +84,7 @@ public class FT20S1Q4 {
                             for(int k = 0; k < attributes[j].length; k++){
                                 if(attributes[j][k].contains("end=")){
                                     if(startTime[i].equals(attributes[j][k].replaceAll("end=", ""))){
-                                        endTime[i] = "Error: " + attributes[j][k+1];
+                                        endTime[i] = "Error: Exit Status " + attributes[j][k+1].split("=")[1];
                                         break;
                                     } else {
                                         endTime[i] = attributes[j][k].replaceAll("end=", "");
