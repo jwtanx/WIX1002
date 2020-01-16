@@ -46,19 +46,56 @@ public class FT20S1Q4 {
             System.out.println("Reading from log file...");
             System.out.println("****************************************");
             
+            int numOfJobID = 0;
+            
             for(int i = 0; i < numOfRecord; i++){
                 attributes[i] = s.nextLine().split(" ");
+                if(attributes[i][1].charAt(9) == 'S'){
+                    numOfJobID++;
+                }
             }
             
             s.close();
             
             System.out.println("Record from log file");
+            String[] jobID = new String[numOfJobID];
+            String[] queue = new String[numOfJobID];
+            String[] startTime = new String[numOfJobID];
+            String[] endTime = new String[numOfJobID];
             
-            for(int i = 0; i < numOfRecord; i++){
+            for(int i = 0, k = 0; i < numOfRecord; i++){
                 System.out.println("\nRecord " + (i + 1) + ":");
+                
+                if(attributes[i][1].charAt(9) == 'S'){
+                    jobID[k] = attributes[i][1].split(";|\\.ce2\\.dicc\\.um\\.edu\\.my")[2];
+                    queue[k] = attributes[i][2].replaceAll("group=", "");
+                    startTime[k] = attributes[i][8].replaceAll("start=", "");
+                    k++;
+                }
                 for(int j = 0; j < attributes[i].length; j++){
                     System.out.println("\t" + attributes[i][j]);
                 }
+            }
+            
+            for(int i = 0; i < numOfJobID;){
+                for(int j = 0; j < numOfRecord; j++){
+                    if(attributes[j][1].charAt(9) == 'E'){
+                        if(jobID[i].equals(attributes[j][1].split(";|\\.ce2\\.dicc\\.um\\.edu\\.my")[2])){
+                            for(int k = 0; k < attributes[j].length; k++){
+                                if(attributes[j][k].contains("end=")){
+                                    if(startTime[i].equals(attributes[j][k].replaceAll("end=", ""))){
+                                        endTime[i] = "Error: " + attributes[j][k+1];
+                                        break;
+                                    } else {
+                                        endTime[i] = attributes[j][k].replaceAll("end=", "");
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                i++;
             }
             
             System.out.println("\ntotal records read: " + numOfRecord);
@@ -119,12 +156,14 @@ public class FT20S1Q4 {
                 System.out.println(finalWorkerNameList[i] + "\t\t" + freq[i]);
             }
             
-            System.out.println("****************************************");
+            System.out.println("\n****************************************");
             System.out.println("Print jobs status\n");
             System.out.println("Job ID\tSubmitted (queue)\tStarted (start time)\tExited (end time/error)");
             System.out.println("------\t-----------------\t--------------------\t-----------------------");
             
-            
+            for(int i = 0; i < numOfJobID; i++){
+                System.out.println(jobID[i] +"\tY (" + queue[i] + ")\t\t\tY (" + startTime[i] + ")\t\t" + endTime[i]);
+            }
             
         } catch(FileNotFoundException fnf){
             System.err.println("File not found!");
