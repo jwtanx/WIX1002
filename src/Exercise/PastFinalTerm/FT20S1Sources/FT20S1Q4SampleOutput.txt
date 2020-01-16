@@ -4,14 +4,15 @@ Records read from log file
 
 Record 1: 
     03/01/2017 
-    00:44:56:Q;14126.ce2.dice.um.edu.my;queue-um 
+    00:44:56:Q;14126.ce2.dicc.um.edu.my;queue=um 
 
 Record 2: 
     03/01/2017 
     00:45:00;S;14126.ce2.dicc.um.edu.my;user=weng 
     group=um 
     jobname=Gaussian 
-    queue=um ctime=1488329096
+    queue=um 
+    ctime=1488329096
     qtime=1488329096
     etime=1488329096
     start=1488329100
